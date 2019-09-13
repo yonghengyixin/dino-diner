@@ -1,11 +1,17 @@
-﻿using System;
+﻿/// <summary>
+/// author: Yijun Lin
+/// </summary>
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
-    class TRexKingBurger
+    public class TRexKingBurger
     {
+        /// <summary>
+        /// check customer want these things or not
+        /// </summary>
         private bool bun = true;
         private bool lettuce = true;
         private bool tomato = true;
@@ -15,68 +21,106 @@ namespace DinoDiner.Menu.Entrees
         private bool mustard = true;
         private bool mayo = true;
 
+        /// <summary>
+        /// create a price
+        /// </summary>
         public double Price { get; set; }
 
+        /// <summary>
+        /// create the calories
+        /// </summary>
         public uint Calories { get; set; }
 
+        /// <summary>
+        /// customer's chooses
+        /// </summary>
         public List<string> Ingredients
         {
             get
             {
-                List<string> ingredients = new List<string>() { "three steakburger patties" };
-                if (bun) ingredients.Add("whole wheat bun");
-                if (lettuce) ingredients.Add("lettuce");
-                if (tomato) ingredients.Add("tomato");
-                if (onion) ingredients.Add("onion");
-                if (pickle) ingredients.Add("pickle");
-                if (ketchup) ingredients.Add("ketchup");
-                if (mustard) ingredients.Add("mustard");
-                if (mayo) ingredients.Add("mayo");
+                List<string> ingredients = new List<string>() { "Steakburger Pattie" };
+                ingredients.Add("Steakburger Pattie");
+                ingredients.Add("Steakburger Pattie");
+                if (bun) ingredients.Add("Whole Wheat Bun");
+                if (lettuce) ingredients.Add("Lettuce");
+                if (tomato) ingredients.Add("Tomato");
+                if (onion) ingredients.Add("Onion");
+                if (pickle) ingredients.Add("Pickle");
+                if (ketchup) ingredients.Add("Ketchup");
+                if (mustard) ingredients.Add("Mustard");
+                if (mayo) ingredients.Add("Mayo");
                 return ingredients;
             }
         }
 
+        /// <summary>
+        /// set the price and calories
+        /// </summary>
         public TRexKingBurger()
         {
             this.Price = 8.45;
             this.Calories = 728;
         }
 
+        /// <summary>
+        /// want this thing or not
+        /// </summary>
         public void HoldBun()
         {
             bun = false;
         }
 
+        /// <summary>
+        /// want this thing or not
+        /// </summary>
         public void HoldLettuce()
         {
             lettuce = false;
         }
 
+        /// <summary>
+        /// want this thing or not
+        /// </summary>
         public void HoldTomato()
         {
             tomato = false;
         }
 
+        /// <summary>
+        /// want this thing or not
+        /// </summary>
         public void HoldOnion()
         {
             onion = false;
         }
 
+        /// <summary>
+        /// want this thing or not
+        /// </summary>
         public void HoldPickle()
         {
             pickle = false;
         }
 
+        /// <summary>
+        /// want this thing or not
+        /// </summary>
         public void HoldKetchup()
         {
             ketchup = false;
         }
 
+        /// <summary>
+        /// want this thing or not
+        /// </summary>
         public void HoldMustard()
         {
             mustard = false;
         }
 
+        /// <summary>
+        /// want this thing or not
+        /// </summary>
         public void HoldMayo()
         {
             mayo = false;

@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using Xunit;
+using DinoDiner.Menu.Entrees;
+
 
 namespace MenuTest.Entrees
 {
@@ -8,14 +10,14 @@ namespace MenuTest.Entrees
         [Fact]
         public void ShouldHaveCorrectDefaultPrice()
         {
-            DinoNuggets dn = new DinoNuggets();
+            DinoNugget dn = new DinoNugget();
             Assert.Equal(4.25, dn.Price, 2);
         }
 
         [Fact]
         public void ShouldHaveCorrectDefaultCalories()
         {
-            DinoNuggets dn = new DinoNuggets();
+            DinoNugget dn = new DinoNugget();
             Assert.Equal<uint>(59*6, dn.Calories);
         }
 
@@ -23,7 +25,7 @@ namespace MenuTest.Entrees
         [Fact]
         public void ShouldListDefaultIngredients()
         {
-            DinoNuggets dn = new DinoNuggets();
+            DinoNugget dn = new DinoNugget();
             List<string> ingredients = dn.Ingredients;
             // Should be six nuggets
             int nuggetCount = 0;
@@ -37,7 +39,7 @@ namespace MenuTest.Entrees
 
         public void AddingNuggetsShouldAddIngredients()
         {
-            DinoNuggets dn = new DinoNuggets();
+            DinoNugget dn = new DinoNugget();
             dn.AddNugget();
             // Should be seven nuggets
             int nuggetCount = 0;
@@ -62,25 +64,25 @@ namespace MenuTest.Entrees
 
         public void AddingNuggetsShouldIncreasePrice()
         {
-            DinoNuggets dn = new DinoNuggets();
+            DinoNugget dn = new DinoNugget();
             dn.AddNugget();
-            Assert.Equal(dn.Price, 4.50);
+            Assert.Equal(dn.Price, 4.50,2);
             dn.AddNugget();
-            Assert.Equal(dn.Price, 4.75);
+            Assert.Equal(dn.Price, 4.75,2);
             dn.AddNugget();
-            Assert.Equal(dn.Price, 5.0);
+            Assert.Equal(dn.Price, 5.0,2);
         }
 
 
         public void AddingNuggetsShouldIncreaseCalories()
         {
-            DinoNuggets dn = new DinoNuggets();
+            DinoNugget dn = new DinoNugget();
             dn.AddNugget();
-            Assert.Equal(dn.Calories, 59*7);
+            Assert.Equal<uint>(dn.Calories, 59*7);
             dn.AddNugget();
-            Assert.Equal(dn.Calories, 59*8);
+            Assert.Equal<uint>(dn.Calories, 59*8);
             dn.AddNugget();
-            Assert.Equal(dn.Calories, 59*9);
+            Assert.Equal<uint>(dn.Calories, 59*9);
         }
     }
 }

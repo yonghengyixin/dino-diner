@@ -1,15 +1,27 @@
-﻿using System;
+﻿/// <summary>
+/// author: Yijun Lin
+/// </summary>
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
-    class DinoNuggets
+    public class DinoNugget
     {
+        /// <summary>
+        /// create a price
+        /// </summary>
         public double Price { get; set; }
 
+        /// <summary>
+        /// create the calories
+        /// </summary>
         public uint Calories { get; set; }
 
+        /// <summary>
+        /// customer's chooses
+        /// </summary>
         public List<string> Ingredients
         {
             get
@@ -23,7 +35,10 @@ namespace DinoDiner.Menu.Entrees
             }
         }
 
-        public DinoNuggets()
+        /// <summary>
+        /// set the price and calories
+        /// </summary>
+        public DinoNugget()
         {
             uint nuggetCount = 0;
             foreach (string ingredient in Ingredients)
@@ -34,7 +49,10 @@ namespace DinoDiner.Menu.Entrees
             this.Calories = 59 * nuggetCount;
         }
 
-        public void AddNuggets()
+        /// <summary>
+        /// add a chicken nugget to the list everytime
+        /// </summary>
+        public void AddNugget()
         {
             Ingredients.Add("Chicken Nugget");
         }
