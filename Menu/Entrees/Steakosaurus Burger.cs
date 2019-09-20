@@ -7,7 +7,7 @@ using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
-    public class SteakosaurusBurger
+    public class SteakosaurusBurger : EntreeBase
     {
         /// <summary>
         /// check customer want these things or not
@@ -18,19 +18,9 @@ namespace DinoDiner.Menu.Entrees
         private bool mustard = true;
 
         /// <summary>
-        /// create a price
-        /// </summary>
-        public double Price { get; set;}
-
-        /// <summary>
-        /// create the calories
-        /// </summary>
-        public uint Calories { get; set;}
-
-        /// <summary>
         /// customer's chooses
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {

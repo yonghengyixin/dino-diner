@@ -7,27 +7,18 @@ using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
-    public class DinoNugget
+    public class DinoNuggets : EntreeBase
     {
-        /// <summary>
-        /// create a price
-        /// </summary>
-        public double Price { get; set; }
-
-        /// <summary>
-        /// create the calories
-        /// </summary>
-        public uint Calories { get; set; }
 
         /// <summary>
         /// customer's chooses
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {
                 List<string> ingredients = new List<string>();
-                for(int i = 0; i < 6; i++)
+                for(int i = 0; i < NuggetCount; i++)
                 {
                     ingredients.Add("Chicken Nugget");
                 }
@@ -36,17 +27,17 @@ namespace DinoDiner.Menu.Entrees
         }
 
         /// <summary>
+        /// set num = 6 at begining
+        /// </summary>
+        private uint NuggetCount = 6;
+
+        /// <summary>
         /// set the price and calories
         /// </summary>
-        public DinoNugget()
+        public DinoNuggets()
         {
-            uint nuggetCount = 0;
-            foreach (string ingredient in Ingredients)
-            {
-                if (ingredient.Equals("Chicken Nugget")) nuggetCount++;
-            }
-            this.Price = 4.25 + 0.25 * (nuggetCount - 6);
-            this.Calories = 59 * nuggetCount;
+            this.Price = 4.25;
+            this.Calories = 59 * NuggetCount;
         }
 
         /// <summary>
@@ -54,7 +45,9 @@ namespace DinoDiner.Menu.Entrees
         /// </summary>
         public void AddNugget()
         {
-            Ingredients.Add("Chicken Nugget");
+            NuggetCount++;
+            Price = Price + 0.25;
+            Calories += 59;
         }
     }
 }

@@ -7,22 +7,13 @@ using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
-    public class PterodactylWings
+    public class PterodactylWings : EntreeBase
     {
-        /// <summary>
-        /// create a price
-        /// </summary>
-        public double Price { get; set; }
-
-        /// <summary>
-        /// create the calories
-        /// </summary>
-        public uint Calories { get; set; }
 
         /// <summary>
         /// customer's chooses
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {

@@ -25,7 +25,7 @@ namespace MenuTest.Entrees
         [Fact]
         public void ShouldListDefaultIngredients()
         {
-            DinoNugget dn = new DinoNugget();
+            DinoNuggets dn = new DinoNuggets();
             List<string> ingredients = dn.Ingredients;
             // Should be six nuggets
             int nuggetCount = 0;

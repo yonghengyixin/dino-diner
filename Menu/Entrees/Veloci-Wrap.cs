@@ -9,7 +9,7 @@ using System.Text;
 namespace DinoDiner.Menu.Entrees
 {
 
-    public class VelociWrap
+    public class VelociWrap : EntreeBase
     {
         /// <summary>
         /// check customer want these things or not
@@ -19,19 +19,9 @@ namespace DinoDiner.Menu.Entrees
         private bool cheese = true;
 
         /// <summary>
-        /// create a price
-        /// </summary>
-        public double Price { get; set; }
-
-        /// <summary>
-        /// create the calories
-        /// </summary>
-        public uint Calories { get; set; }
-
-        /// <summary>
         /// customer's chooses
         /// </summary>
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {
@@ -73,7 +63,7 @@ namespace DinoDiner.Menu.Entrees
         /// <summary>
         /// want this thing or not
         /// </summary>
-        public void holdCheese()
+        public void HoldCheese()
         {
             cheese = false;
         }
