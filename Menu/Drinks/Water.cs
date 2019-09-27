@@ -1,14 +1,26 @@
-﻿using System;
+﻿/*Auther: Yijun Lin
+ * Menu Milestone 3
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
+using DinoDiner.Menu.Drinks;
+using DinoDiner.Menu;
 
 namespace DinoDiner.Menu.Drinks
 {
-    public class Water : Drinks
+    public class Water : Drink
     {
+        /// <summary>
+        /// set a bool for Lemon
+        /// </summary>
         public bool Lemon { get; set; } = false;
 
-        private Size size = Size.Small;
+        private Size size;
+
+        /// <summary>
+        /// set size then set the value and calories
+        /// </summary>
         public override Size Size
         {
             get { return size; }
@@ -19,16 +31,29 @@ namespace DinoDiner.Menu.Drinks
             }
         }
 
-        public bool AddLemon()
+        /// <summary>
+        /// change lemon to true
+        /// </summary>
+        public void AddLemon()
         {
-            bool lemon = true;
-            return lemon;
+            Lemon = true;
+        }
+
+        /// <summary>
+        /// set ingredients
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get
+            {
+                return ingredients;
+            }
         }
 
         public Water()
         {
             Ice = true;
-            size = Size.Small;
+            Size = Size.Small;
             ingredients.Add("Water");
             if(Lemon) ingredients.Add("Lemon");
         }

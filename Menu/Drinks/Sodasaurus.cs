@@ -1,4 +1,7 @@
-﻿using System;
+﻿/*Auther: Yijun Lin
+ * Menu Milestone 3
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using DinoDiner.Menu.Drinks;
@@ -6,8 +9,11 @@ using DinoDiner.Menu;
 
 namespace DinoDiner.Menu.Drinks
 {
-    public class Sodasaurus : Drinks
+    public class Sodasaurus : Drink
     {
+        /// <summary>
+        /// set a flavor
+        /// </summary>
         private SodaSaurusFlavor flavor;
         public SodaSaurusFlavor Flavor
         {
@@ -15,8 +21,10 @@ namespace DinoDiner.Menu.Drinks
             set { flavor = value; }
         }
 
-        
-        private Size size = Size.Small;
+        /// <summary>
+        /// set a size,then set the price and calories
+        /// </summary>
+        private Size size;
         public override Size Size {
             get { return size; }
             set {
@@ -39,6 +47,9 @@ namespace DinoDiner.Menu.Drinks
             }
         }
 
+        /// <summary>
+        /// set ingredientd
+        /// </summary>
         public override List<string> Ingredients
         {
             get
@@ -50,11 +61,12 @@ namespace DinoDiner.Menu.Drinks
         public Sodasaurus()
         {
             Ice = true;
-            size = Size.Small;
+            Size = Size.Small;
             ingredients.Add("Water");
             ingredients.Add("Natural Flavors");
             ingredients.Add("Cane Sugar");
         }
 
+        
     }
 }

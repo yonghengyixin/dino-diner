@@ -1,17 +1,29 @@
-﻿using System;
+﻿/*Auther: Yijun Lin
+ * Menu Milestone 3
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using DinoDiner.Menu;
 
 namespace DinoDiner.Menu.Drinks
 {
-    public class Tyrannotea : Drinks
+    public class Tyrannotea : Drink
     {
+        /// <summary>
+        /// set a bool for sweet
+        /// </summary>
         public bool Sweet { get; set; } = false;
 
+        /// <summary>
+        /// set a bool for lemon
+        /// </summary>
         public bool Lemon { get; set; } = false;
 
-        private Size size = Size.Small;
+        /// <summary>
+        /// set a size, then set the price ang calories
+        /// </summary>
+        private Size size;
         public override Size Size
         {
             get { return size; }
@@ -58,12 +70,17 @@ namespace DinoDiner.Menu.Drinks
             }
         }
 
-        public bool AddLemon()
+        /// <summary>
+        /// change lemon to true
+        /// </summary>
+        public void AddLemon()
         {
-            bool Lemon = true;
-            return Lemon;
+            Lemon = true;
         }
 
+        /// <summary>
+        /// set ingredients
+        /// </summary>
         public override List<string> Ingredients
         {
             get
@@ -75,7 +92,7 @@ namespace DinoDiner.Menu.Drinks
         public Tyrannotea()
         {
             Ice = true;
-            size = Size.Small;
+            Size = Size.Small;
             ingredients.Add("Water");
             ingredients.Add("Tea");
             if(Sweet) ingredients.Add("Cane Sugar");
