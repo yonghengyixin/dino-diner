@@ -74,6 +74,10 @@ namespace DinoDiner.Menu
             mustard = false;
         }
 
+        /// <summary>
+        /// return currect string
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return "Steakosaurus Burger";

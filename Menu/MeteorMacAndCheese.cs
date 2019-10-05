@@ -59,6 +59,10 @@ namespace DinoDiner.Menu
             Size = Size.Small;
         }
 
+        /// <summary>
+        /// return currect string
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"{size.ToString()} Meteor Mac and Cheese";

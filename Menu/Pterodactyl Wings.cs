@@ -32,6 +32,10 @@ namespace DinoDiner.Menu
             this.Calories = 318;
         }
 
+        /// <summary>
+        /// return currect string
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return "Pterodactyl Wings";

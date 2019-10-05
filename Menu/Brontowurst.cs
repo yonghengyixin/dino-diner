@@ -64,6 +64,10 @@ namespace DinoDiner.Menu
             this.onion = false;
         }
 
+        /// <summary>
+        /// return currect string
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return "Brontowurst";

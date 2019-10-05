@@ -67,6 +67,9 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// return currect string
+        /// </summary>
         public Water()
         {
             Ice = true;

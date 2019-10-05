@@ -50,6 +50,10 @@ namespace DinoDiner.Menu
             Calories += 59;
         }
 
+        /// <summary>
+        /// return currect string
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return "Dino-Nuggets";
