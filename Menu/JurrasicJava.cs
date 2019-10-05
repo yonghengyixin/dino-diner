@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
-    public class JurrasicJava : Drink
+    public class JurassicJava : Drink
     {
         /// <summary>
         /// set a bool for cream
@@ -72,17 +72,27 @@ namespace DinoDiner.Menu.Drinks
         {
             get
             {
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Water");
+                ingredients.Add("Coffee");
                 return ingredients;
             }
         }
 
-        public JurrasicJava()
+        public JurassicJava()
         {
             Ice = false;
             RoomForCream = false;
             Size = Size.Small;
-            ingredients.Add("Water");
-            ingredients.Add("Coffee");
+        }
+
+        public override string ToString()
+        {
+            if (Decaf)
+            {
+                return $"{size.ToString()} Decaf Jurassic Java";
+            }
+            return $"{size.ToString()} Jurassic Java";
         }
     }
 }

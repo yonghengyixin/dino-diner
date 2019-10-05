@@ -4,18 +4,17 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using DinoDiner.Menu.Drinks;
 using DinoDiner.Menu;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     public class Sodasaurus : Drink
     {
         /// <summary>
         /// set a flavor
         /// </summary>
-        private SodaSaurusFlavor flavor;
-        public SodaSaurusFlavor Flavor
+        private SodasaurusFlavor flavor;
+        public SodasaurusFlavor Flavor
         {
             get { return flavor; }
             set { flavor = value; }
@@ -54,6 +53,10 @@ namespace DinoDiner.Menu.Drinks
         {
             get
             {
+                List<string> ingredients = new List<string>();
+                ingredients.Add("Water");
+                ingredients.Add("Natural Flavors");
+                ingredients.Add("Cane Sugar");
                 return ingredients;
             }
         }
@@ -62,11 +65,11 @@ namespace DinoDiner.Menu.Drinks
         {
             Ice = true;
             Size = Size.Small;
-            ingredients.Add("Water");
-            ingredients.Add("Natural Flavors");
-            ingredients.Add("Cane Sugar");
         }
 
-        
+        public override string ToString()
+        {
+            return $"{size.ToString()} {flavor.ToString()} Sodasaurus";
+        }
     }
 }

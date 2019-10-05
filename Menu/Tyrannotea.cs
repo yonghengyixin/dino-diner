@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using DinoDiner.Menu;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     public class Tyrannotea : Drink
     {
@@ -85,6 +85,11 @@ namespace DinoDiner.Menu.Drinks
         {
             get
             {
+                List<string> ingredients = new List<string>() ;
+                ingredients.Add("Water");
+                ingredients.Add("Tea");
+                if (Sweet) ingredients.Add("Cane Sugar");
+                if (Lemon) ingredients.Add("Lemon");
                 return ingredients;
             }
         }
@@ -93,10 +98,15 @@ namespace DinoDiner.Menu.Drinks
         {
             Ice = true;
             Size = Size.Small;
-            ingredients.Add("Water");
-            ingredients.Add("Tea");
-            if(Sweet) ingredients.Add("Cane Sugar");
-            if (Lemon) ingredients.Add("Lemon");
+        }
+
+        public override string ToString()
+        {
+            if (Sweet)
+            {
+                return $"{size.ToString()} Sweet Tyrannotea";
+            }
+            return $"{size.ToString()} Tyrannotea";
         }
     }
 }

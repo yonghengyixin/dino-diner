@@ -6,10 +6,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
 
-    public class VelociWrap : EntreeBase
+    public class VelociWrap : Entree
     {
         /// <summary>
         /// check customer want these things or not
@@ -66,6 +66,11 @@ namespace DinoDiner.Menu.Entrees
         public void HoldCheese()
         {
             cheese = false;
+        }
+
+        public override string ToString()
+        {
+            return "Veloci-Wrap";
         }
     }
 }

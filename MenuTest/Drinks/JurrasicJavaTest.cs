@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using DinoDiner.Menu.Drinks;
 using Xunit;
 using DinoDiner.Menu;
 
@@ -13,7 +12,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectDefaultItems()
         {
-            JurrasicJava java = new JurrasicJava();
+            JurassicJava java = new JurassicJava();
             Assert.Equal<double>(0.59, java.Price);
             Assert.Equal<double>(2, java.Calories);
             Assert.False(java.Ice);
@@ -25,7 +24,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectCaloriesAndPriceAfterSettingSize()
         {
-            JurrasicJava java = new JurrasicJava();
+            JurassicJava java = new JurassicJava();
 
             //small
             java.Size = Size.Small;
@@ -47,7 +46,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectIceAfterSettring()
         {
-            JurrasicJava java = new JurrasicJava();
+            JurassicJava java = new JurassicJava();
             java.AddIce();
             Assert.True(java.Ice);
         }
@@ -56,7 +55,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectCreamAfterSetting()
         {
-            JurrasicJava java = new JurrasicJava();
+            JurassicJava java = new JurassicJava();
             java.RoomForCream = true;
             Assert.True(java.RoomForCream);
         }
@@ -65,7 +64,7 @@ namespace MenuTest.Drinks
         [Fact]
         public void ShouldHaveCorrectIngredients()
         {
-            JurrasicJava java = new JurrasicJava();
+            JurassicJava java = new JurassicJava();
             Assert.Contains<string>("Water", java.Ingredients);
             Assert.Contains<string>("Coffee", java.Ingredients);
         }

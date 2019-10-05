@@ -5,12 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// set soda flavors
     /// </summary>
-    public enum SodaSaurusFlavor
+    public enum SodasaurusFlavor
     {
         Cola, Orange, Vanilla, Chocolate, RootBeer, Cherry, Lime
     }

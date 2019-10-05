@@ -4,10 +4,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using DinoDiner.Menu.Drinks;
 using DinoDiner.Menu;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     public class Water : Drink
     {
@@ -26,8 +25,23 @@ namespace DinoDiner.Menu.Drinks
             get { return size; }
             set
             {
-                Price = 0.10;
-                Calories = 0;  
+
+                size = value;
+                if (size == Size.Small)
+                {
+                    Price = 0.10;
+                    Calories = 0;
+                }
+                else if (size == Size.Medium)
+                {
+                    Price = 0.10;
+                    Calories = 0;
+                }
+                else if (size == Size.Large)
+                {
+                    Price = 0.10;
+                    Calories = 0;
+                }
             }
         }
 
@@ -46,6 +60,9 @@ namespace DinoDiner.Menu.Drinks
         {
             get
             {
+                List<string> ingredients = new List<string>() { "Brautwurst" };
+                ingredients.Add("Water");
+                if (Lemon) ingredients.Add("Lemon");
                 return ingredients;
             }
         }
@@ -54,8 +71,12 @@ namespace DinoDiner.Menu.Drinks
         {
             Ice = true;
             Size = Size.Small;
-            ingredients.Add("Water");
-            if(Lemon) ingredients.Add("Lemon");
         }
+
+        public override string ToString()
+        {
+            return $"{size.ToString()} Water";
+        }
+
     }
 }

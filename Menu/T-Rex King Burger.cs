@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
-    public class TRexKingBurger : EntreeBase
+    public class TRexKingBurger : Entree
     {
         /// <summary>
         /// check customer want these things or not
@@ -114,6 +114,11 @@ namespace DinoDiner.Menu.Entrees
         public void HoldMayo()
         {
             mayo = false;
+        }
+
+        public override string ToString()
+        {
+            return "T-Rex King Burger";
         }
     }
 }

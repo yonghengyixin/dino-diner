@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
-    public abstract class EntreeBase
+    public abstract class Entree : IMenuItem
     {
         /// <summary>
         /// Gets and sets the price

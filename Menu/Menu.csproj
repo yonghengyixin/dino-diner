@@ -6,7 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Drinks\" />
+    <Folder Include="Entrees\" />
     <Folder Include="Milestones\" />
+    <Folder Include="Sides\" />
   </ItemGroup>
 
 </Project>
