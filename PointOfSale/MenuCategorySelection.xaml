@@ -19,11 +19,34 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-        
-            <Button Width="200" Height="150" Click="SelectCombo" Grid.Row="0" Grid.Column="0" Margin="40,40,40,10" RenderTransformOrigin="0.499,0.513">Combos</Button>
-            <Button Width="200" Height="150" Click="SelectEntree" Grid.Row="0" Grid.Column="1" Margin="40,40,40,10">Entrees</Button>
-            <Button Width="200" Height="150" Click="SelectSide" Grid.Row="1" Grid.Column="0">Sides</Button>
-            <Button Width="200" Height="150" Grid.Row="1" Grid.Column="1">Drink</Button>
+
+            <Button Click="SelectCombo" Grid.Row="0" Grid.Column="0">
+                <StackPanel>
+                    <Image Width="200" Height="150" Source="Assets/combo.jpg"></Image>
+                    <TextBlock FontSize="20">Combos</TextBlock>
+                </StackPanel>
+            </Button>
+
+            <Button Click="SelectEntree" Grid.Row="0" Grid.Column="1">
+                <StackPanel>
+                    <Image Width="200" Height="150" Source="Assets/entree.jpg"></Image>
+                    <TextBlock FontSize="20">Entrees</TextBlock>
+                </StackPanel>
+            </Button>
+
+            <Button Click="SelectSide" Grid.Row="1" Grid.Column="0">
+                <StackPanel>
+                    <Image Width="200" Height="150" Source="Assets/side.jpeg"></Image>
+                    <TextBlock FontSize="20">Side</TextBlock>
+                </StackPanel>
+            </Button>
+
+            <Button Click="SelectDrink" Grid.Row="1" Grid.Column="1">
+                <StackPanel>
+                    <Image Width="200" Height="150" Source="Assets/drink.jpg"></Image>
+                    <TextBlock FontSize="20">Drink</TextBlock>
+                </StackPanel>
+            </Button>
 
         </Grid>
     </Grid>

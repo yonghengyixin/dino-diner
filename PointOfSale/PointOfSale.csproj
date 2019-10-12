@@ -54,6 +54,15 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Compile Include="Customize.xaml.cs">
+      <DependentUpon>Customize.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DrinkSelection.xaml.cs">
+      <DependentUpon>DrinkSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Flavor.xaml.cs">
+      <DependentUpon>Flavor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SideSelection.xaml.cs">
       <DependentUpon>SideSelection.xaml</DependentUpon>
     </Compile>
@@ -61,7 +70,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Customize.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DrinkSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EntreeSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Flavor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -120,6 +141,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\download %281%29.jpg" />
+    <Resource Include="Assets\download %282%29.jpg" />
+    <Resource Include="Assets\download.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\download %283%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\download %284%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\combo.jpg" />
+    <Resource Include="Assets\drink.jpg" />
+    <Resource Include="Assets\entree.jpg" />
+    <Resource Include="Assets\side.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\pbj.jpg" />
+    <Resource Include="Assets\Pwing.jpg" />
+    <Resource Include="Assets\steakasaurusC.jpg" />
+    <Resource Include="Assets\T-rex.jpg" />
+    <Resource Include="Assets\VelociW.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

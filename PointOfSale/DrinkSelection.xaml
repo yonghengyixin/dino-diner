@@ -1,0 +1,48 @@
+﻿<Page x:Class="PointOfSale.DrinkSelection"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PointOfSale"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DrinkSelection">
+
+    <Grid>
+        <TextBlock HorizontalAlignment="Center" Margin="133,0,130,0" TextWrapping="Wrap" Text="Add To Order" VerticalAlignment="Top" Height="31" Width="137" FontSize="20"/>
+        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Text="Size" VerticalAlignment="Top" Height="31" Width="44" FontSize="20"/>
+            <TextBlock HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" TextWrapping="Wrap" Text="Side" VerticalAlignment="Top" Height="31" Width="43" FontSize="20"/>
+            <TextBlock HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" TextWrapping="Wrap" Text="Special" VerticalAlignment="Top" Height="31" Width="68" FontSize="20" RenderTransformOrigin="0.508,0.504"/>
+
+            <Button Click="Sodasaurus_Click" x:Name="soda" Width="180" Height="60" Grid.Row="2" Grid.Column="0" FontSize="20">Sodasaurus</Button>
+            <Button Click="Tyrannotea_Click" x:Name="tea" Width="180" Height="60" Grid.Row="3" Grid.Column="0" FontSize="20">Tyrannotea</Button>
+            <Button Click="JurrasicJava_Click" x:Name="java" Width="180" Height="60" Grid.Row="4" Grid.Column="0" FontSize="20">JurrasicJava</Button>
+            <Button Click="Water_Click" x:Name="water" Width="180" Height="60" Grid.Row="5" Grid.Column="0" FontSize="20">Water</Button>
+
+            <RadioButton HorizontalAlignment="Center" Width="100" Height="30" Grid.Row="2" Grid.Column="1" FontSize="20">Samll</RadioButton>
+            <RadioButton HorizontalAlignment="Center" Width="100" Height="30" Grid.Row="3" Grid.Column="1" FontSize="20">Medium</RadioButton>
+            <RadioButton HorizontalAlignment="Center" Width="100" Height="30" Grid.Row="4" Grid.Column="1" FontSize="20">Large</RadioButton>
+
+            <Button x:Name="flavor" Width="180" Height="60" Grid.Row="2" Grid.Column="2" Click="SelectFlavor" FontSize="20">Sweet/Decaf/Flavor</Button>
+            <Button x:Name="lemon" Width="180" Height="60" Grid.Row="3" Grid.Column="2" FontSize="20">Add Lemon</Button>
+            <Button x:Name="ice" Width="180" Height="60" Grid.Row="4" Grid.Column="2" FontSize="20">Hold Ice</Button>
+
+        </Grid>
+    </Grid>
+</Page>

@@ -15,12 +15,55 @@
                 <Setter Property="Height" Value="140"/>
             </Style>
         </WrapPanel.Resources>
-        <Button>Brontowurst Combo</Button>
-        <Button>Dino_Nuggets Combo</Button>
-        <Button>Steakosaurus Combo</Button>
-        <Button>T-Rex King Burger Combo</Button>
-        <Button>Prehistoric PB&amp;J Combo</Button>
-        <Button>Pterodactyl Wings Combo</Button>
-        <Button>Veloci-Wrap Combo</Button>
+
+        <Button Click="CustomizeCombo">
+            <StackPanel>
+                <Image Width="100" Source="Assets/download (3).jpg"/>
+                <TextBlock>Brontowurst Combo</TextBlock>
+            </StackPanel>
+        </Button>
+
+        <Button Click="CustomizeCombo">
+            <StackPanel>
+                <Image Width="100" Source="Assets/download (4).jpg"/>
+                <TextBlock>Dino_Nuggets Combo</TextBlock>
+            </StackPanel>
+        </Button>
+
+        <Button Click="CustomizeCombo">
+            <StackPanel>
+                <Image Width="100" Source="Assets/steakasaurusC.jpg"/>
+                <TextBlock>Steakosaurus Combo</TextBlock>
+            </StackPanel>
+        </Button>
+
+        <Button Click="CustomizeCombo">
+            <StackPanel>
+                <Image Width="100" Height="100" Source="Assets/T-rex.jpg"/>
+                <TextBlock>T-Rex King Burger Combo</TextBlock>
+            </StackPanel>
+        </Button>
+
+        <Button Click="CustomizeCombo">
+            <StackPanel>
+                <Image Width="100" Source="Assets/pbj.jpg"/>
+                <TextBlock>Prehistoric PB&amp;J Combo</TextBlock>
+            </StackPanel>
+        </Button>
+
+        <Button Click="CustomizeCombo">
+            <StackPanel>
+                <Image Width="100" Source="Assets/Pwing.jpg"/>
+                <TextBlock>Pterodactyl Wings Combo</TextBlock>
+            </StackPanel>
+        </Button>
+
+        <Button Click="CustomizeCombo">
+            <StackPanel>
+                <Image Width="100" Source="Assets/VelociW.jpg"/>
+                <TextBlock>Veloci-Wrap Combo</TextBlock>
+            </StackPanel>
+        </Button>
+        
     </WrapPanel>
 </Page>
