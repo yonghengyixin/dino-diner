@@ -34,7 +34,10 @@ namespace DinoDiner.Menu
 
                 }
             }
-            get { return size; }
+            get {
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                return size; }
         }
 
 
@@ -65,6 +68,23 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return $"{size.ToString()} Mezzorella Sticks";
+        }
+
+        /// <summary>
+        /// Gets a descriiption of the order item
+        /// </summary>
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
+            }
         }
     }
 }

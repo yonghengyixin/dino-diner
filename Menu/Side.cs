@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using DinoDiner.Menu;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-
-    
-
-    public abstract class Side : IMenuItem
+    public abstract class Side : IMenuItem, IOrderItrm, INotifyPropertyChanged
     {
 
         /// <summary>
@@ -31,5 +29,15 @@ namespace DinoDiner.Menu
         /// </summary>
         public abstract Size Size { get; set; }
 
+        public abstract string Description{get;}
+
+        public abstract string[] Special { get; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

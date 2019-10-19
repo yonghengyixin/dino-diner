@@ -22,7 +22,10 @@ namespace DinoDiner.Menu
         /// </summary>
         public override Size Size
         {
-            get { return size; }
+            get {
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                return size; }
             set
             {
 
@@ -51,6 +54,8 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
             Lemon = true;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -81,5 +86,23 @@ namespace DinoDiner.Menu
             return $"{size.ToString()} Water";
         }
 
+        /// <summary>
+        /// Gets a descriiption of the order item
+        /// </summary>
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Ice) special.Add("Hold Ice");
+                if (Lemon) special.Add("Add Lemon");
+                return special.ToArray();
+            }
+        }
     }
 }

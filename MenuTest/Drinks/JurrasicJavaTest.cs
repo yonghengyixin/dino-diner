@@ -68,5 +68,61 @@ namespace MenuTest.Drinks
             Assert.Contains<string>("Water", java.Ingredients);
             Assert.Contains<string>("Coffee", java.Ingredients);
         }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void DescriptionShouldBeCorrect(Size size)
+        {
+            JurassicJava java = new JurassicJava();
+            java.Size = size;
+            Assert.Equal($"{size.ToString()} Jurassic Java", java.Description);
+
+            java.Decaf = true;
+            Assert.Equal($"{size.ToString()} Decaf Jurassic Java", java.Description);
+        }
+
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ShouHaveCorrectSpecial(Size size)
+        {
+            JurassicJava java = new JurassicJava();
+            java.Size = size;
+
+            Assert.Collection<string>(java.Special,
+            item =>
+            {
+                Assert.Equal("", item);
+            });
+
+            java.LeaveRoomForCream();
+            Assert.Collection<string>(java.Special,
+            item =>
+            {
+                Assert.Equal("Leave Room For Cream", item);
+            });
+
+            java.Ice = true;
+            Assert.Collection<string>(java.Special,
+            item =>
+            {
+                Assert.Equal("Leave Room For Cream", item);
+            },
+            item =>
+            {
+                Assert.Equal("Add Ice", item);
+            });
+
+            java.RoomForCream = false;
+            Assert.Collection<string>(java.Special,
+            item =>
+            {
+                Assert.Equal("Add Ice", item);
+            });
+        }
     }
 }

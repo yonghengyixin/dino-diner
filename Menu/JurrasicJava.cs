@@ -25,7 +25,10 @@ namespace DinoDiner.Menu
         private Size size;
         public override Size Size
         {
-            get { return size; }
+            get {
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                return size; }
             set
             {
                 size = value;
@@ -51,10 +54,10 @@ namespace DinoDiner.Menu
         /// set cream to true
         /// </summary>
         /// <returns></returns>
-        public bool LeaveRoomForCream()
+        public void LeaveRoomForCream()
         {
-            bool cream = true;
-            return cream;
+            RoomForCream = true;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -63,6 +66,8 @@ namespace DinoDiner.Menu
         public void AddIce()
         {
             Ice = true;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -97,6 +102,25 @@ namespace DinoDiner.Menu
                 return $"{size.ToString()} Decaf Jurassic Java";
             }
             return $"{size.ToString()} Jurassic Java";
+        }
+
+        /// <summary>
+        /// Gets a descriiption of the order item
+        /// </summary>
+        public override string Description
+        {
+            get {return this.ToString(); }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (RoomForCream) special.Add("Leave Room For Cream");
+                if (Ice) special.Add("Add Ice");
+                return special.ToArray();
+            }
         }
     }
 }

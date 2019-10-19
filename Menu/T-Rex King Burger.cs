@@ -58,6 +58,8 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             bun = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -66,6 +68,8 @@ namespace DinoDiner.Menu
         public void HoldLettuce()
         {
             lettuce = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -74,6 +78,8 @@ namespace DinoDiner.Menu
         public void HoldTomato()
         {
             tomato = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -82,6 +88,8 @@ namespace DinoDiner.Menu
         public void HoldOnion()
         {
             onion = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -90,6 +98,8 @@ namespace DinoDiner.Menu
         public void HoldPickle()
         {
             pickle = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -98,6 +108,8 @@ namespace DinoDiner.Menu
         public void HoldKetchup()
         {
             ketchup = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -106,6 +118,8 @@ namespace DinoDiner.Menu
         public void HoldMustard()
         {
             mustard = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -114,6 +128,8 @@ namespace DinoDiner.Menu
         public void HoldMayo()
         {
             mayo = false;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>
@@ -123,6 +139,31 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return "T-Rex King Burger";
+        }
+
+        /// <summary>
+        /// Gets a descriiption of the order item
+        /// </summary>
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!bun) special.Add("Hold Whole Wheat Bun");
+                if (!lettuce) special.Add("Hold Lettuce");
+                if (!tomato) special.Add("Hold Tomato");
+                if (!onion) special.Add("Hold Onion");
+                if (!pickle) special.Add("Hold Pickle");
+                if (!ketchup) special.Add("Hold Ketchup");
+                if (!mustard) special.Add("Hold Mustard");
+                if (!mayo) special.Add("Hold Mayo");
+                return special.ToArray();
+            }
         }
     }
 }

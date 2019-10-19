@@ -9,7 +9,6 @@ namespace DinoDiner.Menu
 {
     public class DinoNuggets : Entree
     {
-
         /// <summary>
         /// customer's chooses
         /// </summary>
@@ -57,6 +56,27 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return "Dino-Nuggets";
+        }
+
+        /// <summary>
+        /// Gets a descriiption of the order item
+        /// </summary>
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if((int)NuggetCount>6)
+                {
+                    special.Add($"{NuggetCount - 6} Extra Nuggets");
+                }
+                return special.ToArray();
+            }
         }
     }
 }

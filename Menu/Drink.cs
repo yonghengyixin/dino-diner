@@ -5,10 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using DinoDiner.Menu;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public abstract class Drink : IMenuItem
+    public abstract class Drink : IMenuItem, INotifyPropertyChanged
     {
 
         /// <summary>
@@ -30,6 +31,17 @@ namespace DinoDiner.Menu
         /// set the size
         /// </summary>
         public abstract Size Size { get; set; }
+
+        public abstract string Description { get; }
+
+        public abstract string[] Special { get; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /// <summary>
         /// set a bool for ice

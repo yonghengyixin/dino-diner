@@ -22,7 +22,7 @@ namespace DinoDiner.Menu
                 return list;
             }
         }
-
+        
         /// <summary>
         /// return all entrees
         /// </summary>
