@@ -64,6 +64,285 @@ namespace MenuTest.Entrees
             sb.HoldMustard();
             Assert.DoesNotContain<string>("Mustard", sb.Ingredients);
         }
+
+        [Fact]
+        public void DescriptionShouldBeCorrect()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            Assert.Equal("Steakosaurus Burger", sb.Description);
+        }
+
+        [Fact]
+        public void SpecialShouldBeEmptyByDefault()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            Assert.Empty(sb.Special);
+        }
+
+        [Fact]
+        public void HoldBunShouldAddToSpecial()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldBun();
+            Assert.Collection<string>(sb.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Bun", item);
+                });
+        }
+
+        [Fact]
+        public void HoldPickleAddToSpecial()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldPickle();
+            Assert.Collection<string>(sb.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Pickle", item);
+                });
+        }
+
+        [Fact]
+        public void HoldKetchupAddToSpecial()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldKetchup();
+            Assert.Collection<string>(sb.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Ketchup", item);
+                });
+        }
+
+        [Fact]
+        public void HoldMustardAddToSpecial()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldMustard();
+            Assert.Collection<string>(sb.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Mustard", item);
+                });
+        }
+
+        [Fact]
+        public void HoldBAndPAddToSpecial()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldBun();
+            sb.HoldPickle();
+            Assert.Collection<string>(sb.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Bun", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Pickle", item);
+                });
+        }
+
+        [Fact]
+        public void HoldBAndKAddToSpecial()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldBun();
+            sb.HoldKetchup();
+            Assert.Collection<string>(sb.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Bun", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Ketchup", item);
+                });
+        }
+
+        [Fact]
+        public void HoldBAndMAddToSpecial()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldBun();
+            sb.HoldMustard();
+            Assert.Collection<string>(sb.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Bun", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Nustard", item);
+                });
+        }
+
+        [Fact]
+        public void HoldPAndKAddToSpecial()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldPickle();
+            sb.HoldKetchup();
+            Assert.Collection<string>(sb.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Pickle", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Ketchup", item);
+                });
+        }
+
+        [Fact]
+        public void HoldPAndMAddToSpecial()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldPickle();
+            sb.HoldMustard();
+            Assert.Collection<string>(sb.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Pickle", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Mustard", item);
+                });
+        }
+
+        [Fact]
+        public void HoldKAndMAddToSpecial()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldKetchup();
+            sb.HoldMustard();
+            Assert.Collection<string>(sb.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Ketchup", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Mustard", item);
+                });
+        }
+
+        [Fact]
+        public void HoldBAndPAndKAddToSpecial()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldBun();
+            sb.HoldPickle();
+            sb.HoldKetchup();
+            Assert.Collection<string>(sb.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Bun", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Pickle", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Ketchup", item);
+                });
+        }
+
+        [Fact]
+        public void HoldBAndPAndMAddToSpecial()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldBun();
+            sb.HoldPickle();
+            sb.HoldMustard();
+            Assert.Collection<string>(sb.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Bun", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Pickle", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Mustard", item);
+                });
+        }
+
+        [Fact]
+        public void HoldBAndKAndMAddToSpecial()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldBun();
+            sb.HoldKetchup();
+            sb.HoldMustard();
+            Assert.Collection<string>(sb.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Bun", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Ketchup", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Mustard", item);
+                });
+        }
+
+        [Fact]
+        public void HoldPAndKAndMAddToSpecial()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldPickle();
+            sb.HoldKetchup();
+            sb.HoldMustard();
+            Assert.Collection<string>(sb.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Pickle", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Ketchup", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Mustard", item);
+                });
+        }
+
+        [Fact]
+        public void HoldBAndPAndKAndMAddToSpecial()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            sb.HoldBun();
+            sb.HoldPickle();
+            sb.HoldKetchup();
+            sb.HoldMustard();
+            Assert.Collection<string>(sb.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Bun", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Pickle", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Ketchup", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Mustard", item);
+                });
+        }
     }
 
 }

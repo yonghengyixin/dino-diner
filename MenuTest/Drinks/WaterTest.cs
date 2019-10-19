@@ -68,5 +68,64 @@ namespace MenuTest.Drinks
             Assert.Contains<string>("Water", wat.Ingredients);
             if(wat.Lemon)Assert.Contains<string>("Lemon", wat.Ingredients);
         }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void DescriptionShouldBeCorrect(Size size)
+        {
+            Water wat = new Water();
+            Assert.Equal($"{size.ToString()} Water", wat.Description);
+        }
+
+        [Fact]
+        public void SpecialShouldBeEmptyByDefault()
+        {
+            Water wat = new Water();
+            Assert.Empty(wat.Special);
+        }
+
+        [Fact]
+        public void HoldIceShouldAddToSpecial()
+        {
+            Water wat = new Water();
+            wat.Ice = false;
+            Assert.Collection<string>(wat.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Ice", item);
+                });
+        }
+
+        [Fact]
+        public void ShouldAddLemonToSpecial()
+        {
+            Water wat = new Water();
+            wat.AddLemon();
+            Assert.Collection<string>(wat.Special,
+                item =>
+                {
+                    Assert.Equal("Add Lemon", item);
+                });
+        }
+
+        [Fact]
+        public void ShouldHoldIceAndAddLemonToSpecial()
+        {
+            Water wat = new Water();
+            wat.Ice = false;
+            wat.AddLemon();
+            Assert.Collection<string>(wat.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Ice", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Add Lemon", item);
+                });
+
+        }
     }
 }

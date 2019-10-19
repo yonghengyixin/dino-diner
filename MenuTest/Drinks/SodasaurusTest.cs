@@ -91,5 +91,52 @@ namespace MenuTest.Drinks
             Assert.Contains<string>("Natural Flavors", soda.Ingredients);
             Assert.Contains<string>("Cane Sugar", soda.Ingredients);
         }
+        
+        [Theory]
+        [InlineData(Size.Small,SodasaurusFlavor.Cola)]
+        [InlineData(Size.Small, SodasaurusFlavor.Orange)]
+        [InlineData(Size.Small, SodasaurusFlavor.Vanilla)]
+        [InlineData(Size.Small, SodasaurusFlavor.Chocolate)]
+        [InlineData(Size.Small, SodasaurusFlavor.RootBeer)]
+        [InlineData(Size.Small, SodasaurusFlavor.Cherry)]
+        [InlineData(Size.Small, SodasaurusFlavor.Lime)]
+        [InlineData(Size.Medium, SodasaurusFlavor.Cola)]
+        [InlineData(Size.Medium, SodasaurusFlavor.Orange)]
+        [InlineData(Size.Medium, SodasaurusFlavor.Vanilla)]
+        [InlineData(Size.Medium, SodasaurusFlavor.Chocolate)]
+        [InlineData(Size.Medium, SodasaurusFlavor.RootBeer)]
+        [InlineData(Size.Medium, SodasaurusFlavor.Cherry)]
+        [InlineData(Size.Medium, SodasaurusFlavor.Lime)]
+        [InlineData(Size.Large, SodasaurusFlavor.Cola)]
+        [InlineData(Size.Large, SodasaurusFlavor.Orange)]
+        [InlineData(Size.Large, SodasaurusFlavor.Vanilla)]
+        [InlineData(Size.Large, SodasaurusFlavor.Chocolate)]
+        [InlineData(Size.Large, SodasaurusFlavor.RootBeer)]
+        [InlineData(Size.Large, SodasaurusFlavor.Cherry)]
+        [InlineData(Size.Large, SodasaurusFlavor.Lime)]
+        public void DescriptionShouldBeCorrect(Size size, SodasaurusFlavor flavor)
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.Equal($"{size.ToString()} {flavor.ToString()} Sodasaurus", soda.Description);
+        }
+
+        [Fact]
+        public void SpecialShouldBeEmptyByDefault()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.Empty(soda.Special);
+        }
+
+        [Fact]
+        public void ShouldHoldIceToSpecial()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.Ice = true;
+            Assert.Collection<string>(soda.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Ice", item);
+                });
+        }
     }
 }

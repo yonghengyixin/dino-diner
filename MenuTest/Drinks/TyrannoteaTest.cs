@@ -114,5 +114,68 @@ namespace MenuTest.Drinks
             if(tyr.Lemon)Assert.Contains<string>("Lemon", tyr.Ingredients);
             if(tyr.Sweet)Assert.Contains<string>("Cane Sugar", tyr.Ingredients);
         }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void DescriptionShouldBeCorrect(Size size)
+        {
+            Tyrannotea tyr = new Tyrannotea();
+            tyr.Size = size;
+            Assert.Equal($"{size.ToString()} Sweet Tyrannotea", tyr.Description);
+
+            tyr.Sweet = true;
+            Assert.Equal($"{size.ToString()} Tyrannotea", tyr.Description);
+        }
+
+        [Fact]
+        public void SpecialShouldBeEmptyByDefault()
+        {
+            Tyrannotea tyr = new Tyrannotea();
+            Assert.Empty(tyr.Special);
+        }
+
+        [Fact]
+        public void HoldIceShouldAddToSpecial()
+        {
+            Tyrannotea tyr = new Tyrannotea();
+            tyr.Ice = false;
+            Assert.Collection<string>(tyr.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Ice", item);
+                });
+        }
+
+        [Fact]
+        public void ShouldAddLemonToSpecial()
+        {
+            Tyrannotea tyr = new Tyrannotea();
+            tyr.AddLemon();
+            Assert.Collection<string>(tyr.Special,
+                item =>
+                {
+                    Assert.Equal("Add Lemon", item);
+                });
+        }
+
+        [Fact]
+        public void ShouldHoldIceAndAddLemonToSpecial()
+        {
+            Tyrannotea tyr = new Tyrannotea();
+            tyr.Ice = false;
+            tyr.AddLemon();
+            Assert.Collection<string>(tyr.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Ice", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Add Lemon", item);
+                });
+
+        }
     }
 }

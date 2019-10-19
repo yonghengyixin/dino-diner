@@ -83,46 +83,53 @@ namespace MenuTest.Drinks
             Assert.Equal($"{size.ToString()} Decaf Jurassic Java", java.Description);
         }
 
-
-        [Theory]
-        [InlineData(Size.Small)]
-        [InlineData(Size.Medium)]
-        [InlineData(Size.Large)]
-        public void ShouHaveCorrectSpecial(Size size)
+        [Fact]
+        public void SpecialShouldBeEmptyByDefault()
         {
             JurassicJava java = new JurassicJava();
-            java.Size = size;
+            Assert.Empty(java.Special);
+        }
 
-            Assert.Collection<string>(java.Special,
-            item =>
-            {
-                Assert.Equal("", item);
-            });
-
+        [Fact]
+        public void LeaveRoomForCreamShouldAddToSpecial()
+        {
+            JurassicJava java = new JurassicJava();
             java.LeaveRoomForCream();
             Assert.Collection<string>(java.Special,
-            item =>
-            {
-                Assert.Equal("Leave Room For Cream", item);
-            });
+                item =>
+                {
+                    Assert.Equal("Leave Room For Cream", item);
+                });
+        }
 
-            java.Ice = true;
+        [Fact]
+        public void ShouldAddIceToSpecial()
+        {
+            JurassicJava java = new JurassicJava();
+            java.AddIce();
             Assert.Collection<string>(java.Special,
-            item =>
-            {
-                Assert.Equal("Leave Room For Cream", item);
-            },
-            item =>
-            {
-                Assert.Equal("Add Ice", item);
-            });
+                item =>
+                {
+                    Assert.Equal("Add Ice", item);
+                });
+        }
 
-            java.RoomForCream = false;
+        [Fact]
+        public void ShouldAddRoomAndIceToSpecial()
+        {
+            JurassicJava java = new JurassicJava();
+            java.LeaveRoomForCream();
+            java.AddIce();
             Assert.Collection<string>(java.Special,
-            item =>
-            {
-                Assert.Equal("Add Ice", item);
-            });
+                item =>
+                {
+                    Assert.Equal("Leave Room For Cream", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Add Ice", item);
+                });
+
         }
     }
 }

@@ -83,5 +83,24 @@ namespace MenuTest.Sides
             ft.Size = Size.Large;
             Assert.Equal<Size>(Size.Large, ft.Size);
         }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void DescriptionShouldBeCorrect(Size size)
+        {
+            Fryceritops ft = new Fryceritops();
+            ft.Size = size;
+            Assert.Equal($"{size.ToString()} Friceritops", ft.Description);
+        }
+
+        [Fact]
+        public void SpecialShouldBeEmptyByDefault()
+        {
+            Fryceritops ft = new Fryceritops();
+            Assert.Empty(ft.Special);
+        }
+
     }
 }
