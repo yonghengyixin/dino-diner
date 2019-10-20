@@ -6,7 +6,7 @@ using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public abstract class Side : IMenuItem, IOrderItrm, INotifyPropertyChanged
+    public abstract class Side : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
 
         /// <summary>
@@ -29,12 +29,25 @@ namespace DinoDiner.Menu
         /// </summary>
         public abstract Size Size { get; set; }
 
+        /// <summary>
+        /// get Description
+        /// </summary>
         public abstract string Description{get;}
 
+        /// <summary>
+        /// get special
+        /// </summary>
         public abstract string[] Special { get; }
 
+        /// <summary>
+        /// get all notify into event
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// get notify
+        /// </summary>
+        /// <param name="propertyName"></param>
         public void NotifyOfPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

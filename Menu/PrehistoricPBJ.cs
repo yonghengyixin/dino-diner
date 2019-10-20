@@ -5,9 +5,19 @@ namespace DinoDiner.Menu
 {
     public class PrehistoricPBJ : Entree, INotifyPropertyChanged
     {
+        /// <summary>
+        /// set bool to peanut butter
+        /// </summary>
         private bool peanutButter = true;
+
+        /// <summary>
+        /// set bool to jelly
+        /// </summary>
         private bool jelly = true;
 
+        /// <summary>
+        /// put items into Ingredients
+        /// </summary>
         public override List<string> Ingredients
         {
             get
@@ -19,12 +29,18 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// set org price ang calories
+        /// </summary>
         public PrehistoricPBJ()
         {
             this.Price = 6.52;
             this.Calories = 483;
         }
 
+        /// <summary>
+        /// special order to hold peanut butter
+        /// </summary>
         public void HoldPeanutButter()
         {
             this.peanutButter = false;
@@ -32,6 +48,9 @@ namespace DinoDiner.Menu
             NotifyOfPropertyChanged("Special");
         }
 
+        /// <summary>
+        /// special order to hold jelly
+        /// </summary>
         public void HoldJelly()
         {
             this.jelly = false;
@@ -56,6 +75,9 @@ namespace DinoDiner.Menu
             get { return this.ToString(); }
         }
 
+        /// <summary>
+        /// get special order
+        /// </summary>
         public override string[] Special
         {
             get

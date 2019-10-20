@@ -174,7 +174,7 @@ namespace MenuTest.Entrees
                 },
                 item =>
                 {
-                    Assert.Equal("Hold Nustard", item);
+                    Assert.Equal("Hold Mustard", item);
                 });
         }
 

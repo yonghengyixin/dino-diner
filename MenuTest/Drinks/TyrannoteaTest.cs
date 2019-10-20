@@ -123,10 +123,19 @@ namespace MenuTest.Drinks
         {
             Tyrannotea tyr = new Tyrannotea();
             tyr.Size = size;
-            Assert.Equal($"{size.ToString()} Sweet Tyrannotea", tyr.Description);
-
-            tyr.Sweet = true;
             Assert.Equal($"{size.ToString()} Tyrannotea", tyr.Description);
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void DescriptionShouldBeCorrectWithSweet(Size size)
+        {
+            Tyrannotea tyr = new Tyrannotea();
+            tyr.Size = size;
+            tyr.Sweet = true;
+            Assert.Equal($"{size.ToString()} Sweet Tyrannotea", tyr.Description);
         }
 
         [Fact]

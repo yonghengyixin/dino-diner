@@ -8,7 +8,7 @@ namespace DinoDiner.Menu
     /// <summary>
     /// A class representing a combo meal
     /// </summary>
-    public class CretaceousCombo : IMenuItem, IOrderItrm, INotifyPropertyChanged
+    public class CretaceousCombo : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
         // Backing Variables
         private Size size;
@@ -44,6 +44,9 @@ namespace DinoDiner.Menu
         /// </summary>
         public Drink drink { get; set; } = new Sodasaurus();
 
+        /// <summary>
+        /// set drink notify
+        /// </summary>
         public Drink Drink
         {
             get { return drink; }
@@ -112,6 +115,9 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// get all special from every item
+        /// </summary>
         public string[] Special
         {
             get
@@ -126,6 +132,9 @@ namespace DinoDiner.Menu
             }
         }
         
+        /// <summary>
+        /// return combo
+        /// </summary>
         public string Description
         {
             get

@@ -23,9 +23,7 @@ namespace DinoDiner.Menu
         public override Size Size
         {
             get {
-                NotifyOfPropertyChanged("Price");
-                NotifyOfPropertyChanged("Calories");
-                NotifyOfPropertyChanged("Description");
+                
                 return size; }
             set
             {
@@ -46,6 +44,9 @@ namespace DinoDiner.Menu
                     Price = 0.10;
                     Calories = 0;
                 }
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Description");
             }
         }
 
@@ -82,6 +83,10 @@ namespace DinoDiner.Menu
             Size = Size.Small;
         }
 
+        /// <summary>
+        /// return currect string
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"{size.ToString()} Water";
@@ -95,6 +100,9 @@ namespace DinoDiner.Menu
             get { return this.ToString(); }
         }
 
+        /// <summary>
+        /// get special order
+        /// </summary>
         public override string[] Special
         {
             get

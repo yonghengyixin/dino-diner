@@ -87,6 +87,9 @@ namespace DinoDiner.Menu
             get { return this.ToString(); }
         }
 
+        /// <summary>
+        /// get special order
+        /// </summary>
         public override string[] Special
         {
             get

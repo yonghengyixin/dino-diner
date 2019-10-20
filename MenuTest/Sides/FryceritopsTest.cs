@@ -92,7 +92,7 @@ namespace MenuTest.Sides
         {
             Fryceritops ft = new Fryceritops();
             ft.Size = size;
-            Assert.Equal($"{size.ToString()} Friceritops", ft.Description);
+            Assert.Equal($"{size.ToString()} Fryceritops", ft.Description);
         }
 
         [Fact]

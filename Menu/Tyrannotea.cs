@@ -27,12 +27,11 @@ namespace DinoDiner.Menu
         public override Size Size
         {
             get {
-                NotifyOfPropertyChanged("Price");
-                NotifyOfPropertyChanged("Calories");
-                NotifyOfPropertyChanged("Ingredients");
+                
                 return size; }
             set
             {
+                
                 size = value;
                 if (size == Size.Small)
                 {
@@ -71,6 +70,9 @@ namespace DinoDiner.Menu
                         Calories = 64;
                     }
                 }
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Ingredients");
             }
         }
 
@@ -100,6 +102,9 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// set org items
+        /// </summary>
         public Tyrannotea()
         {
             Ice = true;
@@ -127,6 +132,9 @@ namespace DinoDiner.Menu
             get { return this.ToString(); }
         }
 
+        /// <summary>
+        /// get special order
+        /// </summary>
         public override string[] Special
         {
             get

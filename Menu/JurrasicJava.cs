@@ -26,9 +26,6 @@ namespace DinoDiner.Menu
         public override Size Size
         {
             get {
-                NotifyOfPropertyChanged("Price");
-                NotifyOfPropertyChanged("Calories");
-                NotifyOfPropertyChanged("Description");
                 return size; }
             set
             {
@@ -48,6 +45,9 @@ namespace DinoDiner.Menu
                     Price = 1.49;
                     Calories = 8;
                 }
+                NotifyOfPropertyChanged("Price");
+                NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Description");
             }
         }
 
@@ -112,6 +112,9 @@ namespace DinoDiner.Menu
             get {return this.ToString(); }
         }
 
+        /// <summary>
+        /// get special order
+        /// </summary>
         public override string[] Special
         {
             get

@@ -237,7 +237,7 @@ namespace MenuTest.Entrees
                 },
                 item =>
                 {
-                    Assert.Equal("Hlod Lettuce", item);
+                    Assert.Equal("Hold Lettuce", item);
                 },
                 item =>
                 {

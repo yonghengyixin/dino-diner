@@ -35,14 +35,18 @@ namespace DinoDiner.Menu
                         break;
 
                 }
-            }
-            get {
                 NotifyOfPropertyChanged("Price");
                 NotifyOfPropertyChanged("Calories");
                 NotifyOfPropertyChanged("Description");
+            }
+            get {
+                
                 return size; }
         }
 
+        /// <summary>
+        /// put items into ingredients
+        /// </summary>
         public override List<string> Ingredients
         {
             get
@@ -80,6 +84,9 @@ namespace DinoDiner.Menu
             get { return this.ToString(); }
         }
 
+        /// <summary>
+        /// get special order
+        /// </summary>
         public override string[] Special
         {
             get

@@ -76,6 +76,7 @@ namespace MenuTest.Drinks
         public void DescriptionShouldBeCorrect(Size size)
         {
             Water wat = new Water();
+            wat.Size = size;
             Assert.Equal($"{size.ToString()} Water", wat.Description);
         }
 

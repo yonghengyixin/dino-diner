@@ -117,6 +117,8 @@ namespace MenuTest.Drinks
         public void DescriptionShouldBeCorrect(Size size, SodasaurusFlavor flavor)
         {
             Sodasaurus soda = new Sodasaurus();
+            soda.Size = size;
+            soda.Flavor = flavor;
             Assert.Equal($"{size.ToString()} {flavor.ToString()} Sodasaurus", soda.Description);
         }
 
@@ -131,7 +133,7 @@ namespace MenuTest.Drinks
         public void ShouldHoldIceToSpecial()
         {
             Sodasaurus soda = new Sodasaurus();
-            soda.Ice = true;
+            soda.HoldIce();
             Assert.Collection<string>(soda.Special,
                 item =>
                 {
@@ -166,7 +168,7 @@ namespace MenuTest.Drinks
             Sodasaurus soda = new Sodasaurus();
             Assert.PropertyChanged(soda, "Special", () =>
             {
-                soda.Ice = false;
+                soda.HoldIce();
             });
         }
     }

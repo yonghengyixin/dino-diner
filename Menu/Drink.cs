@@ -32,21 +32,45 @@ namespace DinoDiner.Menu
         /// </summary>
         public abstract Size Size { get; set; }
 
+        /// <summary>
+        /// set a Description
+        /// </summary>
         public abstract string Description { get; }
 
+        /// <summary>
+        /// set a Special
+        /// </summary>
         public abstract string[] Special { get; }
 
+        /// <summary>
+        /// get all notify change in to event
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// get notify change
+        /// </summary>
+        /// <param name="propertyName"></param>
         public void NotifyOfPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         /// <summary>
+        /// set ice to true
+        /// </summary>
+        private bool ice = true;
+
+        /// <summary>
         /// set a bool for ice
         /// </summary>
-        public bool Ice { get; set; } = true;
+        public bool Ice {
+            get { return ice; }
+            set {
+                
+                ice = value;
+            }
+        }
 
         /// <summary>
         /// set ice to false
@@ -54,6 +78,7 @@ namespace DinoDiner.Menu
         public void HoldIce()
         {
             Ice = false;
+            NotifyOfPropertyChanged("Special");
         }
 
         
