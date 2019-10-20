@@ -129,7 +129,49 @@ namespace MenuTest.Drinks
                 {
                     Assert.Equal("Add Ice", item);
                 });
-
         }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangeSizeShouldNotifyPriceAndCalories(Size size)
+        {
+            JurassicJava java = new JurassicJava();
+            Assert.PropertyChanged(java, "Price", () =>
+                {
+                    java.Size = size;
+                });
+            Assert.PropertyChanged(java, "Calories", () =>
+            {
+                java.Size = size;
+            });
+            Assert.PropertyChanged(java, "Description", () =>
+            {
+                java.Size = size;
+            });
+        }
+
+        [Fact]
+        public void LeaveRoomShouldNotifySpecialChange()
+        {
+            JurassicJava java = new JurassicJava();
+            Assert.PropertyChanged(java, "Special", () =>
+            {
+                java.LeaveRoomForCream();
+            });
+        }
+
+        [Fact]
+        public void AddIceShouldNotifySpecialChange()
+        {
+            JurassicJava java = new JurassicJava();
+            Assert.PropertyChanged(java, "Special", () =>
+            {
+                java.AddIce();
+            });
+        }
+
+
     }
 }

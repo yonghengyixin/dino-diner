@@ -177,5 +177,50 @@ namespace MenuTest.Drinks
                 });
 
         }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangeSizeShouldNotifyPriceAndCalories(Size size)
+        {
+            Tyrannotea tyr = new Tyrannotea();
+            Assert.PropertyChanged(tyr, "Price", () =>
+            {
+                tyr.Size = size;
+            });
+            Assert.PropertyChanged(tyr, "Calories", () =>
+            {
+                tyr.Size = size;
+            });
+            Assert.PropertyChanged(tyr, "Ingredients", () =>
+            {
+                tyr.Size = size;
+            });
+        }
+
+        [Fact]
+        public void HoldIceShouldNotifySpecialChange()
+        {
+            Tyrannotea tyr = new Tyrannotea();
+            Assert.PropertyChanged(tyr, "Special", () =>
+            {
+                tyr.Ice = false;
+            });
+        }
+
+        [Fact]
+        public void AddLemonShouldNotifyIngredientsAndSpecialChange()
+        {
+            Tyrannotea tyr = new Tyrannotea();
+            Assert.PropertyChanged(tyr, "Ingredients", () =>
+            {
+                tyr.AddLemon();
+            });
+            Assert.PropertyChanged(tyr, "Special", () =>
+            {
+                tyr.AddLemon();
+            });
+        }
     }
 }

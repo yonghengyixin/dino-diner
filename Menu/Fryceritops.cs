@@ -39,6 +39,7 @@ namespace DinoDiner.Menu
             get {
                 NotifyOfPropertyChanged("Price");
                 NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Description");
                 return size; }
         }
 
@@ -68,7 +69,7 @@ namespace DinoDiner.Menu
         /// <returns></returns>
         public override string ToString()
         {
-            return $"{size.ToString()} Friceritops";
+            return $"{size.ToString()} Fryceritops";
         }
 
         /// <summary>

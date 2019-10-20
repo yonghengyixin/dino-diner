@@ -265,6 +265,118 @@ namespace MenuTest.Entrees
                 }
                 );
         }
+
+        [Fact]
+        public void HoldBunShouldNotifySpecialAndIngredientsChange()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            Assert.PropertyChanged(trex, "Special", () =>
+            {
+                trex.HoldBun();
+            });
+            Assert.PropertyChanged(trex, "Ingredients", () =>
+            {
+                trex.HoldBun();
+            });
+        }
+
+        [Fact]
+        public void HoldLettuceShouldNotifySpecialAndIngredientsChange()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            Assert.PropertyChanged(trex, "Special", () =>
+            {
+                trex.HoldLettuce();
+            });
+            Assert.PropertyChanged(trex, "Ingredients", () =>
+            {
+                trex.HoldLettuce();
+            });
+        }
+
+        [Fact]
+        public void HoldTomatoShouldNotifySpecialAndIngredientsChange()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            Assert.PropertyChanged(trex, "Special", () =>
+            {
+                trex.HoldTomato();
+            });
+            Assert.PropertyChanged(trex, "Ingredients", () =>
+            {
+                trex.HoldTomato();
+            });
+        }
+
+        [Fact]
+        public void HoldOnionShouldNotifySpecialAndIngredientsChange()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            Assert.PropertyChanged(trex, "Special", () =>
+            {
+                trex.HoldOnion();
+            });
+            Assert.PropertyChanged(trex, "Ingredients", () =>
+            {
+                trex.HoldOnion();
+            });
+        }
+
+        [Fact]
+        public void HoldPickleShouldNotifySpecialAndIngredientsChange()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            Assert.PropertyChanged(trex, "Special", () =>
+            {
+                trex.HoldPickle();
+            });
+            Assert.PropertyChanged(trex, "Ingredients", () =>
+            {
+                trex.HoldPickle();
+            });
+        }
+
+        [Fact]
+        public void HoldKetchupShouldNotifySpecialAndIngredientsChange()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            Assert.PropertyChanged(trex, "Special", () =>
+            {
+                trex.HoldKetchup();
+            });
+            Assert.PropertyChanged(trex, "Ingredients", () =>
+            {
+                trex.HoldKetchup();
+            });
+        }
+
+        [Fact]
+        public void HoldMustardShouldNotifySpecialAndIngredientsChange()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            Assert.PropertyChanged(trex, "Special", () =>
+            {
+                trex.HoldMustard();
+            });
+            Assert.PropertyChanged(trex, "Ingredients", () =>
+            {
+                trex.HoldMustard();
+            });
+        }
+
+        [Fact]
+        public void HoldMayoShouldNotifySpecialAndIngredientsChange()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            Assert.PropertyChanged(trex, "Special", () =>
+            {
+                trex.HoldMayo();
+            });
+            Assert.PropertyChanged(trex, "Ingredients", () =>
+            {
+                trex.HoldMayo();
+            });
+        }
     }
 
 }

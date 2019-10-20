@@ -47,6 +47,7 @@ namespace DinoDiner.Menu
             NuggetCount++;
             Price = Price + 0.25;
             Calories += 59;
+            NotifyOfPropertyChanged("Special");
         }
 
         /// <summary>

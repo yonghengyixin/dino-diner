@@ -29,6 +29,7 @@ namespace DinoDiner.Menu
             get {
                 NotifyOfPropertyChanged("Price");
                 NotifyOfPropertyChanged("Calories");
+                NotifyOfPropertyChanged("Ingredients");
                 return size; }
             set
             {

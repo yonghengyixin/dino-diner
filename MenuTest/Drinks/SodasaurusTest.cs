@@ -138,5 +138,36 @@ namespace MenuTest.Drinks
                     Assert.Equal("Hold Ice", item);
                 });
         }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangeSizeShouldNotifyPriceAndCalories(Size size)
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.PropertyChanged(soda, "Price", () =>
+            {
+                soda.Size = size;
+            });
+            Assert.PropertyChanged(soda, "Calories", () =>
+            {
+                soda.Size = size;
+            });
+            Assert.PropertyChanged(soda, "Description", () =>
+            {
+                soda.Size = size;
+            });
+        }
+
+        [Fact]
+        public void AddIceShouldNotifySpecialChange()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.PropertyChanged(soda, "Special", () =>
+            {
+                soda.Ice = false;
+            });
+        }
     }
 }

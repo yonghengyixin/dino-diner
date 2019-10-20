@@ -343,6 +343,62 @@ namespace MenuTest.Entrees
                     Assert.Equal("Hold Mustard", item);
                 });
         }
+
+        [Fact]
+        public void HoldBunShouldNotifySpecialAndIngredientsChange()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            Assert.PropertyChanged(sb, "Special", () =>
+            {
+                sb.HoldBun();
+            });
+            Assert.PropertyChanged(sb, "Ingredients", () =>
+            {
+                sb.HoldBun();
+            });
+        }
+
+        [Fact]
+        public void HoldPickleShouldNotifySpecialAndIngredientsChange()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            Assert.PropertyChanged(sb, "Special", () =>
+            {
+                sb.HoldPickle();
+            });
+            Assert.PropertyChanged(sb, "Ingredients", () =>
+            {
+                sb.HoldPickle();
+            });
+        }
+
+        [Fact]
+        public void HoldKetchupShouldNotifySpecialAndIngredientsChange()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            Assert.PropertyChanged(sb, "Special", () =>
+            {
+                sb.HoldKetchup();
+            });
+            Assert.PropertyChanged(sb, "Ingredients", () =>
+            {
+                sb.HoldKetchup();
+            });
+        }
+
+        [Fact]
+        public void HoldMustardShouldNotifySpecialAndIngredientsChange()
+        {
+            SteakosaurusBurger sb = new SteakosaurusBurger();
+            Assert.PropertyChanged(sb, "Special", () =>
+            {
+                sb.HoldMustard();
+            });
+            Assert.PropertyChanged(sb, "Ingredients", () =>
+            {
+                sb.HoldMustard();
+            });
+        }
     }
 
 }

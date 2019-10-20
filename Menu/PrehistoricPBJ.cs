@@ -19,16 +19,6 @@ namespace DinoDiner.Menu
             }
         }
 
-        /// <summary>
-        /// An event handler for PropertyChanger events
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void NotifyOfPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
         public PrehistoricPBJ()
         {
             this.Price = 6.52;

@@ -125,7 +125,20 @@ namespace MenuTest.Drinks
                 {
                     Assert.Equal("Add Lemon", item);
                 });
+        }
 
+        [Fact]
+        public void AddLemonShouldNotifyToIngredientsAndSpecial()
+        {
+            Water wat = new Water();
+            Assert.PropertyChanged(wat, "Ingredients", () =>
+            {
+                wat.AddLemon();
+            });
+            Assert.PropertyChanged(wat, "Special", () =>
+            {
+                wat.AddLemon();
+            });
         }
     }
 }
