@@ -214,7 +214,7 @@ namespace MenuTest.Drinks
             Tyrannotea tyr = new Tyrannotea();
             Assert.PropertyChanged(tyr, "Special", () =>
             {
-                tyr.Ice = false;
+                tyr.HoldIce();
             });
         }
 
