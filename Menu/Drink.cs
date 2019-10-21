@@ -9,7 +9,7 @@ using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public abstract class Drink : IMenuItem, INotifyPropertyChanged
+    public abstract class Drink : IMenuItem, IOrderItem, INotifyPropertyChanged
     {
 
         /// <summary>

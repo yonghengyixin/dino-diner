@@ -10,7 +10,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// set a ObservableCollection to get all items
         /// </summary>
-        public ObservableCollection<IOrderItem> item = new ObservableCollection<IOrderItem>();
+        public ObservableCollection<IMenuItem> Items { get; } = new ObservableCollection<IMenuItem>();
 
         /// <summary>
         /// get sub total cost
@@ -20,7 +20,7 @@ namespace DinoDiner.Menu
         {
             get
             {
-                foreach(IOrderItem i in item)
+                foreach(IMenuItem i in Items)
                 {
                     subtotalCost += i.Price;
                 }

@@ -8,7 +8,7 @@ using DinoDiner.Menu;
 
 namespace DinoDiner.Menu
 {
-    public class Sodasaurus : Drink
+    public class Sodasaurus : Drink, IMenuItem
     {
         /// <summary>
         /// set a flavor
