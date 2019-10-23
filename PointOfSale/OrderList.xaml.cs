@@ -24,5 +24,10 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
+
+        private void OnSelectionChanged(object sender, EventArgs args)
+        {
+            OrderItems.SelectedItem;
+        }
     }
 }
