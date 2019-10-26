@@ -29,6 +29,11 @@ namespace PointOfSale
             InitializeComponent();
         }
 
+        /// <summary>
+        /// change info in listbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnSelectionChanged(object sender, EventArgs args)
         {
             if(OrderItems.SelectedItem is Side side)
@@ -37,6 +42,11 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// remove info in listbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void RemoveItem(object sender, RoutedEventArgs args)
         {
             if(DataContext is Order order)

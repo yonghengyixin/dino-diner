@@ -24,6 +24,9 @@ namespace PointOfSale
     {
         private Drink drink;
 
+        /// <summary>
+        /// default of drinkSelection
+        /// </summary>
         public DrinkSelection()
         {
             InitializeComponent();
@@ -32,16 +35,32 @@ namespace PointOfSale
             ice.IsEnabled = false;
         }
 
+        /// <summary>
+        /// default of drinkSelection
+        /// </summary>
         public DrinkSelection(Drink drink)
         {
             InitializeComponent();
-            lemon.IsEnabled = false;
-            flavor.IsEnabled = false;
-            ice.IsEnabled = false;
-            this.drink = drink;
+            
+            if(drink is Sodasaurus)
+            {
+                lemon.IsEnabled = false;
+                this.drink = drink;
+            }
+            else
+            {
+                lemon.IsEnabled = false;
+                flavor.IsEnabled = false;
+                ice.IsEnabled = false;
+                this.drink = drink;
+            }
         }
 
-
+        /// <summary>
+        /// hold sodasaurus button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void Sodasaurus_Click(object sender,RoutedEventArgs args)
         {
             lemon.IsEnabled = false;
@@ -54,6 +73,11 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// hold tea button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void Tyrannotea_Click(object sender, RoutedEventArgs args)
         {
             lemon.IsEnabled = true;
@@ -66,6 +90,11 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// hold java button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void JurrasicJava_Click(object sender, RoutedEventArgs args)
         {
             lemon.IsEnabled = false;
@@ -78,6 +107,11 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// hold water button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void Water_Click(object sender, RoutedEventArgs args)
         {
             lemon.IsEnabled = true;
@@ -90,6 +124,11 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// hold all size change button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnChangeSide(object sender, RoutedEventArgs args)
         {
             if (sender is FrameworkElement element)
@@ -98,6 +137,11 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// hold add lemon button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void AddLemon(object sender, RoutedEventArgs args)
         {
             if (drink is Tyrannotea tea)
@@ -110,6 +154,11 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// hold ice button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void HoldIce(object sender, RoutedEventArgs args)
         {
             if(drink is Tyrannotea tea)
@@ -130,7 +179,12 @@ namespace PointOfSale
             }
         }
 
-        void SelectFlavor(object sender, RoutedEventArgs args)
+        /// <summary>
+        /// hold soda flavor button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void SelectFlavor(object sender, RoutedEventArgs args)
         {
             if(drink is JurassicJava java)
             {
@@ -145,6 +199,16 @@ namespace PointOfSale
                 NavigationService.Navigate(new Flavor(soda));
             }
             
+        }
+
+        /// <summary>
+        /// hold done button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void Done(object sender, RoutedEventArgs args)
+        {
+            NavigationService.Navigate(new MenuCategorySelection());
         }
     }
 }

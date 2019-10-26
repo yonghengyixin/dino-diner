@@ -32,13 +32,17 @@ namespace PointOfSale
             
         }
 
-        //1.Cola, 2Orange, 3Vanilla, 4Chocolate, 5RootBeer, 6Cherry, 6Lime
-
+        /// <summary>
+        /// handle all flavor button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         public void ChooseFlavor(object sender, RoutedEventArgs args)
         {
             if (sender is FrameworkElement element)
             {
                 soda.Flavor = (DDF)Enum.Parse(typeof(DDF), element.Tag.ToString());
+                NavigationService.Navigate(new DrinkSelection(soda));
             }
             
         }

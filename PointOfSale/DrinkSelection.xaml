@@ -42,6 +42,7 @@
             <Button x:Name="flavor" Width="180" Height="60" Grid.Row="2" Grid.Column="2" Click="SelectFlavor" FontSize="20">Sweet/Decaf/Flavor</Button>
             <Button x:Name="lemon" Width="180" Height="60" Grid.Row="3" Grid.Column="2" Click="AddLemon" FontSize="20">Add Lemon</Button>
             <Button x:Name="ice" Width="180" Height="60" Grid.Row="4" Grid.Column="2" Click="HoldIce" FontSize="20">Hold Ice</Button>
+            <Button x:Name="done" Width="180" Height="60" Grid.Row="5" Grid.Column="2" Click="Done" FontSize="20">Done</Button>
 
         </Grid>
     </Grid>

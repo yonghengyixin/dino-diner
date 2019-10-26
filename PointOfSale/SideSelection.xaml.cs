@@ -35,6 +35,11 @@ namespace PointOfSale
             this.side = side;
         }
 
+        /// <summary>
+        /// handle fryceritops button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnSelectFryceritops(object sender, RoutedEventArgs args)
         {
             if(DataContext is Order order)
@@ -44,11 +49,59 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// handle meteor mac & cheese button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnSelectMeteorMacAndCheese(object sender, RoutedEventArgs args)
+        {
+            if(DataContext is Order order)
+            {
+                side = new MeteorMacAndCheese();
+                order.Add(side);
+            }
+        }
+
+        /// <summary>
+        /// handle mezzorella sticks button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnSelectMezzorellaSticks(object sender, RoutedEventArgs args)
+        {
+            if(DataContext is Order order)
+            {
+                side = new MezzorellaSticks();
+                order.Add(side);
+            }
+        }
+
+        /// <summary>
+        /// handle triceritots button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnSelectTriceritots(object sender,RoutedEventArgs args)
+        {
+            if(DataContext is Order order)
+            {
+                side = new Triceritots();
+                order.Add(side);
+            }
+        }
+
+        /// <summary>
+        /// handle all size change button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnChangeSide(object sender, RoutedEventArgs args)
         {
             if(sender is FrameworkElement element)
             {
                 side.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
+                NavigationService.Navigate(new MenuCategorySelection());
             }
         }
     }
