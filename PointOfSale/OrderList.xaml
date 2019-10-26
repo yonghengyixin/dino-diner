@@ -27,16 +27,24 @@
         <ListBox Grid.Row="1"
                  Grid.ColumnSpan="2"
                  Name ="OrderItems"
-                 ItemsSource="{Binding Path=Items}">
+                 ItemsSource="{Binding Path=Items}"
+                 IsSynchronizedWithCurrentItem="True"
+                 SelectionChanged="OnSelectionChanged">
                 <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
+                <DataTemplate>
+                    <StackPanel Width="190">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="15"/>
+                            </Grid.ColumnDefinitions>
                             <TextBlock Text="{Binding Path=Description}"/>
-                            <ListBox ItemsSource="{Binding Path=Special}" BorderBrush="White"/>
-                        </StackPanel>
-                    </DataTemplate>
-
-                </ListBox.ItemTemplate>
+                            <Button Click="RemoveItem" Grid.Column="1" Background="Red" Foreground="White">X</Button>
+                        </Grid>
+                        <ListBox ItemsSource="{Binding Path=Special}" BorderBrush="White"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
         <TextBlock Text="Suctotal $"
                    FontWeight="Bold"

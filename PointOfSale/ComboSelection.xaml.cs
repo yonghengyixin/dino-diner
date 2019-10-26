@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
@@ -28,6 +29,15 @@ namespace PointOfSale
         void CustomizeCombo(object sender, RoutedEventArgs args)
         {
             NavigationService.Navigate(new Customize());
+        }
+
+        public void OnAddDinoNuggetsCombo(object sender, RoutedEventArgs args)
+        {
+            if(DataContext is Order order)
+            {
+                order.Add(new DinoNuggets());
+                //NavigationService.Navigate(new CustomizeCombo());
+            }
         }
     }
 }

@@ -86,6 +86,13 @@ namespace DinoDiner.Menu
             NotifyOfPropertyChanged("Special");
         }
 
+        public void MakeSweet()
+        {
+            Sweet = true;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Description");
+        }
+
         /// <summary>
         /// set ingredients
         /// </summary>

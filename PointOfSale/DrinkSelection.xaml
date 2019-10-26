@@ -35,13 +35,13 @@
             <Button Click="JurrasicJava_Click" x:Name="java" Width="180" Height="60" Grid.Row="4" Grid.Column="0" FontSize="20">JurrasicJava</Button>
             <Button Click="Water_Click" x:Name="water" Width="180" Height="60" Grid.Row="5" Grid.Column="0" FontSize="20">Water</Button>
 
-            <RadioButton HorizontalAlignment="Center" Width="100" Height="30" Grid.Row="2" Grid.Column="1" FontSize="20">Samll</RadioButton>
-            <RadioButton HorizontalAlignment="Center" Width="100" Height="30" Grid.Row="3" Grid.Column="1" FontSize="20">Medium</RadioButton>
-            <RadioButton HorizontalAlignment="Center" Width="100" Height="30" Grid.Row="4" Grid.Column="1" FontSize="20">Large</RadioButton>
+            <RadioButton HorizontalAlignment="Center" Width="100" Height="30" Grid.Row="2" Grid.Column="1" FontSize="20" Tag="Small" Name="MakeSmall" Click="OnChangeSide">Samll</RadioButton>
+            <RadioButton HorizontalAlignment="Center" Width="100" Height="30" Grid.Row="3" Grid.Column="1" FontSize="20" Tag="Medium" Name="MakeMedium" Click="OnChangeSide">Medium</RadioButton>
+            <RadioButton HorizontalAlignment="Center" Width="100" Height="30" Grid.Row="4" Grid.Column="1" FontSize="20" Tag="Large" Name="MakeLarge" Click="OnChangeSide">Large</RadioButton>
 
             <Button x:Name="flavor" Width="180" Height="60" Grid.Row="2" Grid.Column="2" Click="SelectFlavor" FontSize="20">Sweet/Decaf/Flavor</Button>
-            <Button x:Name="lemon" Width="180" Height="60" Grid.Row="3" Grid.Column="2" FontSize="20">Add Lemon</Button>
-            <Button x:Name="ice" Width="180" Height="60" Grid.Row="4" Grid.Column="2" FontSize="20">Hold Ice</Button>
+            <Button x:Name="lemon" Width="180" Height="60" Grid.Row="3" Grid.Column="2" Click="AddLemon" FontSize="20">Add Lemon</Button>
+            <Button x:Name="ice" Width="180" Height="60" Grid.Row="4" Grid.Column="2" Click="HoldIce" FontSize="20">Hold Ice</Button>
 
         </Grid>
     </Grid>

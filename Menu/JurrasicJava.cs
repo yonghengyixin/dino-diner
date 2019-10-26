@@ -19,6 +19,12 @@ namespace DinoDiner.Menu
         /// </summary>
         public bool Decaf { get; set; } = false;
 
+        public void MakeDecaf()
+        {
+            Decaf = true;
+            NotifyOfPropertyChanged("Description");
+        }
+
         /// <summary>
         /// set a size,then set the price and colories
         /// </summary>
