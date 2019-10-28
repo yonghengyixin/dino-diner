@@ -50,7 +50,7 @@
                 </StackPanel>
             </Button>
 
-            <Button Grid.Row="1" Grid.Column="1" Click="OnSelectPrehistoricPBJ">
+            <Button Grid.Row="1" Grid.Column="1" Click="OnAddPrehistoricPBJ">
                 <StackPanel>
                     <Image Width="180" Height="80" Source="Assets/pbj.jpg"/>
                     <TextBlock FontSize="20">Prehistoric PB&amp;J</TextBlock>

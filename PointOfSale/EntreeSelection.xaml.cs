@@ -63,7 +63,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void OnSelectPrehistoricPBJ(object sender, RoutedEventArgs args)
+        /*private void OnSelectPrehistoricPBJ(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
@@ -71,7 +71,7 @@ namespace PointOfSale
                 order.Add(entree);
                 NavigationService.Navigate(new MenuCategorySelection());
             }
-        }
+        }*/
 
         /// <summary>
         /// handle pterodactyl wings button
@@ -130,6 +130,16 @@ namespace PointOfSale
                 entree = new VelociWrap();
                 order.Add(entree);
                 NavigationService.Navigate(new MenuCategorySelection());
+            }
+        }
+
+        void OnAddPrehistoricPBJ(object sender, RoutedEventArgs args)
+        {
+            if(DataContext is Order order)
+            {
+                PrehistoricPBJ pbj = new PrehistoricPBJ();
+                order.Add(pbj);
+                NavigationService.Navigate(new CustomizePrehistoricPBJ(pbj));
             }
         }
     }
