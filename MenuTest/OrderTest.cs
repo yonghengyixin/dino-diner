@@ -16,9 +16,9 @@ namespace MenuTest
             MorkSides ms = new MorkSides(3);
 
             Order o = new Order();
-            o.Items.Add(md);
-            o.Items.Add(me);
-            o.Items.Add(ms);
+            o.Add(md);
+            o.Add(me);
+            o.Add(ms);
             Assert.Equal<double>(6, o.SubtotalCost);
         }
 
@@ -30,9 +30,9 @@ namespace MenuTest
             MorkSides ms = new MorkSides(3);
 
             Order o = new Order();
-            o.Items.Add(md);
-            o.Items.Add(me);
-            o.Items.Add(ms);
+            o.Add(md);
+            o.Add(me);
+            o.Add(ms);
             Assert.Equal<double>(0, o.SubtotalCost);
         }
     }

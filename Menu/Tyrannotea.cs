@@ -10,10 +10,21 @@ namespace DinoDiner.Menu
 {
     public class Tyrannotea : Drink
     {
+        private bool sweet = false;
+
         /// <summary>
         /// set a bool for sweet
         /// </summary>
-        public bool Sweet { get; set; } = false;
+        public bool Sweet {
+            get
+            {
+                return sweet;
+            }
+            set
+            {
+                NotifyOfPropertyChanged("Description");
+            }
+        }
 
         /// <summary>
         /// set a bool for lemon
@@ -73,6 +84,7 @@ namespace DinoDiner.Menu
                 NotifyOfPropertyChanged("Price");
                 NotifyOfPropertyChanged("Calories");
                 NotifyOfPropertyChanged("Ingredients");
+                NotifyOfPropertyChanged("Description");
             }
         }
 

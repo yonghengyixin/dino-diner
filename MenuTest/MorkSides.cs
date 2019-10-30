@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using DinoDiner.Menu;
 
@@ -8,6 +9,8 @@ namespace MenuTest
     public class MorkSides : IOrderItem
     {
         public double price;
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public double Price { get; set; }
 
