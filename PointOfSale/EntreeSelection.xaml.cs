@@ -26,9 +26,9 @@ namespace PointOfSale
             InitializeComponent();
         }
 
-        private Entree entree;
+        //private Entree entree;
 
-        /// <summary>
+        /*/// <summary>
         /// hold bontowursr button
         /// </summary>
         /// <param name="sender"></param>
@@ -63,7 +63,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        /*private void OnSelectPrehistoricPBJ(object sender, RoutedEventArgs args)
+        private void OnSelectPrehistoricPBJ(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
@@ -71,7 +71,7 @@ namespace PointOfSale
                 order.Add(entree);
                 NavigationService.Navigate(new MenuCategorySelection());
             }
-        }*/
+        }
 
         /// <summary>
         /// handle pterodactyl wings button
@@ -131,7 +131,7 @@ namespace PointOfSale
                 order.Add(entree);
                 NavigationService.Navigate(new MenuCategorySelection());
             }
-        }
+        }*/
 
         void OnAddPrehistoricPBJ(object sender, RoutedEventArgs args)
         {
@@ -140,6 +140,65 @@ namespace PointOfSale
                 PrehistoricPBJ pbj = new PrehistoricPBJ();
                 order.Add(pbj);
                 NavigationService.Navigate(new CustomizePrehistoricPBJ(pbj));
+            }
+        }
+
+        void OnAddBrontowurst(object sender, RoutedEventArgs args)
+        {
+            if (DataContext is Order order)
+            {
+                Brontowurst bt = new Brontowurst();
+                order.Add(bt);
+                NavigationService.Navigate(new CustomizeBrontowurst(bt));
+            }
+        }
+
+        void OnAddDinoNuggets(object sender, RoutedEventArgs args)
+        {
+            if(DataContext is Order order)
+            {
+                DinoNuggets dn = new DinoNuggets();
+                order.Add(dn);
+                NavigationService.Navigate(new CustomizeDinoNuggets(dn));
+            }
+        }
+
+        void OnAddPterodactylWings(object sender, RoutedEventArgs args)
+        {
+            if(DataContext is Order order)
+            {
+                PterodactylWings pw = new PterodactylWings();
+                order.Add(pw);
+            }
+        }
+
+        void OnAddSteakosaurusBurger(object sender, RoutedEventArgs args)
+        {
+            if(DataContext is Order order)
+            {
+                SteakosaurusBurger sb = new SteakosaurusBurger();
+                order.Add(sb);
+                NavigationService.Navigate(new CustomizeSteakosaurusBurger(sb));
+            }
+        }
+
+        void OnAddTRexKingBurger(object sender, RoutedEventArgs args)
+        {
+            if(DataContext is Order order)
+            {
+                TRexKingBurger tk = new TRexKingBurger();
+                order.Add(tk);
+                NavigationService.Navigate(new CustomizeTRexKingBurger(tk));
+            }
+        }
+
+        void OnAddVelociWrap(object sender, RoutedEventArgs args)
+        {
+            if(DataContext is Order order)
+            {
+                VelociWrap vw = new VelociWrap();
+                order.Add(vw);
+                NavigationService.Navigate(new CustomizeVelociWrap(vw));
             }
         }
     }
