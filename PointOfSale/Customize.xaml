@@ -31,7 +31,7 @@
         <TextBlock HorizontalAlignment="Center" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap" Text="Size" VerticalAlignment="Top" Height="31" Width="44" FontSize="20"/>
 
         <Button Width="180" Height="60" Grid.Row="3" Grid.Column="0" Click="SelectSide" FontSize="20">Friceritops</Button>
-        <Button Width="180" Height="60" Grid.Row="3" Grid.Column="1" Click="SelectEntree" FontSize="20">Entree</Button>
+        <Button Width="180" Height="60" Grid.Row="3" Grid.Column="1" Click="SelectEntree" FontSize="20" Name="EntreeButton">Entree</Button>
         <Button Width="180" Height="60" Grid.Row="3" Grid.Column="2" Click="SelectDrink" FontSize="20">Sodasaurus</Button>
         <RadioButton HorizontalAlignment="Center" Width="100" Height="30" Grid.Row="5" Grid.Column="0" FontSize="20">Small</RadioButton>
         <RadioButton HorizontalAlignment="Center" Width="100" Height="30" Grid.Row="5" Grid.Column="1" FontSize="20">Medium</RadioButton>

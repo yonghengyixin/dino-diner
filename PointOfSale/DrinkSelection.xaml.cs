@@ -208,7 +208,8 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void Done(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new MenuCategorySelection());
+            //NavigationService.Navigate(new MenuCategorySelection());
+            NavigationService.GoBack();
         }
     }
 }
