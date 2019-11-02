@@ -23,8 +23,6 @@ namespace PointOfSale
     {
         private CretaceousCombo combo;
 
-        private Entree entree;
-
         public Customize()
         {
             InitializeComponent();
@@ -33,12 +31,20 @@ namespace PointOfSale
         public Customize(CretaceousCombo combo)
         {
             InitializeComponent();
+            EntreeButton.IsEnabled = true;
             this.combo = combo;
+            if(combo.Entree is Entree entree)
+            {
+                if (entree is PterodactylWings pw)
+                {
+                    EntreeButton.IsEnabled = false;
+                }
+            }
         }
 
         void SelectDrink(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new DrinkSelection());
+            NavigationService.Navigate(new DrinkSelection(combo));
         }
 
         void SelectSide(object sender, RoutedEventArgs args)
@@ -48,7 +54,7 @@ namespace PointOfSale
 
         void SelectEntree(object sender, RoutedEventArgs args)
         {
-            EntreeButton.IsEnabled = true;
+            
             if (combo.Entree is Entree entree)
             {
                 if(entree is DinoNuggets dn)
@@ -58,10 +64,6 @@ namespace PointOfSale
                 else if(entree is Brontowurst bt)
                 {
                     NavigationService.Navigate(new CustomizeBrontowurst(bt));
-                }
-                else if(entree is PterodactylWings pw)
-                {
-                    EntreeButton.IsEnabled = false;
                 }
                 else if(entree is SteakosaurusBurger sb)
                 {

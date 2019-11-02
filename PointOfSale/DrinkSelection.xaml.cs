@@ -24,6 +24,8 @@ namespace PointOfSale
     {
         private Drink drink;
 
+        private CretaceousCombo combo;
+
         /// <summary>
         /// default of drinkSelection
         /// </summary>
@@ -33,6 +35,16 @@ namespace PointOfSale
             lemon.IsEnabled = false;
             flavor.IsEnabled = false;
             ice.IsEnabled = false;
+        }
+
+        public DrinkSelection(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            lemon.IsEnabled = false;
+            flavor.IsEnabled = false;
+            ice.IsEnabled = false;
+            this.combo = combo;
+            drink = combo.Drink;
         }
 
         /// <summary>
@@ -208,8 +220,14 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void Done(object sender, RoutedEventArgs args)
         {
-            //NavigationService.Navigate(new MenuCategorySelection());
-            NavigationService.GoBack();
+            if(combo != null)
+            {
+                NavigationService.Navigate(new Customize(combo));
+            }
+            else
+            {
+                NavigationService.Navigate(new MenuCategorySelection());
+            }
         }
     }
 }

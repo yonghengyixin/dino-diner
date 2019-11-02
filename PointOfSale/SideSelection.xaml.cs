@@ -101,7 +101,7 @@ namespace PointOfSale
             if(sender is FrameworkElement element)
             {
                 side.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
-                NavigationService.Navigate(new MenuCategorySelection());
+                NavigationService.GoBack();
             }
         }
     }

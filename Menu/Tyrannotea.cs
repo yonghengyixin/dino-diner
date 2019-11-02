@@ -22,8 +22,16 @@ namespace DinoDiner.Menu
             }
             set
             {
+                sweet = value;
                 NotifyOfPropertyChanged("Description");
             }
+        }
+
+        public void MakeSweet()
+        {
+            Sweet = true;
+            NotifyOfPropertyChanged("Ingredients");
+            NotifyOfPropertyChanged("Description");
         }
 
         /// <summary>
@@ -96,13 +104,6 @@ namespace DinoDiner.Menu
             Lemon = true;
             NotifyOfPropertyChanged("Ingredients");
             NotifyOfPropertyChanged("Special");
-        }
-
-        public void MakeSweet()
-        {
-            Sweet = true;
-            NotifyOfPropertyChanged("Ingredients");
-            NotifyOfPropertyChanged("Description");
         }
 
         /// <summary>
