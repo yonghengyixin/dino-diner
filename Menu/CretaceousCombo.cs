@@ -46,6 +46,7 @@ namespace DinoDiner.Menu
             {
                 side = value;
                 side.PropertyChanged += OnItemChange;
+                side.Size = size;
                 NotifyOfPropertyChanged("Ingredients");
                 NotifyOfPropertyChanged("Special");
                 NotifyOfPropertyChanged("Price");
@@ -69,6 +70,7 @@ namespace DinoDiner.Menu
             {
                 drink = value;
                 drink.PropertyChanged += OnItemChange;
+                drink.Size = size;
                 NotifyOfPropertyChanged("Ingredients");
                 NotifyOfPropertyChanged("Special");
                 NotifyOfPropertyChanged("Price");

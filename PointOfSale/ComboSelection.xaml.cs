@@ -26,11 +26,11 @@ namespace PointOfSale
             InitializeComponent();
         }
 
-        /*void CustomizeCombo(object sender, RoutedEventArgs args)
-        {
-            NavigationService.Navigate(new Customize());
-        }*/
-
+        /// <summary>
+        /// handle nugget combo button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         public void OnAddDinoNuggetsCombo(object sender, RoutedEventArgs args)
         {
             if(DataContext is Order order)
@@ -41,6 +41,11 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// handle brontowurst combo hutton
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         public void OnAddBrontowurstCombo(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
@@ -51,6 +56,11 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// handle pterodacty wings combo button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         public void OnAddPterodactylWingsCombo(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
@@ -61,6 +71,11 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// handle steakosaurus burger combo button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         public void OnAddSteakosaurusBurgerCombo(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
@@ -71,6 +86,11 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// handle t king burger combo button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         public void OnAddTRexKingBurgerCombo(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
@@ -81,6 +101,11 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// handle veloci wrap combo button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         public void OnAddVelociWrapCombo(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
@@ -91,6 +116,11 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// handle prehistoricPBJ combo button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         public void OnAddPrehistoricPBJCombo(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)

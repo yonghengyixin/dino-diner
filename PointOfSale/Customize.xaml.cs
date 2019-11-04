@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DDSize = DinoDiner.Menu.Size;
 using DinoDiner.Menu;
 
 namespace PointOfSale
@@ -42,45 +43,73 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// handle drink button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         void SelectDrink(object sender, RoutedEventArgs args)
         {
             NavigationService.Navigate(new DrinkSelection(combo));
         }
 
+        /// <summary>
+        /// handle side button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         void SelectSide(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new SideSelection());
+            NavigationService.Navigate(new SideSelection(combo));
         }
 
+        /// <summary>
+        /// handle entree button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         void SelectEntree(object sender, RoutedEventArgs args)
         {
-            
+
             if (combo.Entree is Entree entree)
             {
-                if(entree is DinoNuggets dn)
+                if (entree is DinoNuggets dn)
                 {
                     NavigationService.Navigate(new CustomizeDinoNuggets(dn));
                 }
-                else if(entree is Brontowurst bt)
+                else if (entree is Brontowurst bt)
                 {
                     NavigationService.Navigate(new CustomizeBrontowurst(bt));
                 }
-                else if(entree is SteakosaurusBurger sb)
+                else if (entree is SteakosaurusBurger sb)
                 {
                     NavigationService.Navigate(new CustomizeSteakosaurusBurger(sb));
                 }
-                else if(entree is TRexKingBurger tb)
+                else if (entree is TRexKingBurger tb)
                 {
                     NavigationService.Navigate(new CustomizeTRexKingBurger(tb));
                 }
-                else if(entree is VelociWrap vw)
+                else if (entree is VelociWrap vw)
                 {
                     NavigationService.Navigate(new CustomizeVelociWrap(vw));
                 }
-                else if(entree is PrehistoricPBJ pbj)
+                else if (entree is PrehistoricPBJ pbj)
                 {
                     NavigationService.Navigate(new CustomizePrehistoricPBJ(pbj));
                 }
+            }
+        }
+
+        /// <summary>
+        /// handle all size change button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnChangeSide(object sender, RoutedEventArgs args)
+        {
+            if (sender is FrameworkElement element)
+            {
+                combo.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
             }
         }
     }

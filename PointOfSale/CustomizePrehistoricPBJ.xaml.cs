@@ -29,16 +29,31 @@ namespace PointOfSale
             this.pbj = pbj;
         }
 
+        /// <summary>
+        /// handle hold peanut butter button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnHoldPeanutButter(object sender,RoutedEventArgs args)
         {
             pbj.HoldPeanutButter();
         }
 
+        /// <summary>
+        /// handle hold jelly button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnHoldJelly(object sender, RoutedEventArgs args)
         {
             pbj.HoldJelly();
         }
 
+        /// <summary>
+        /// handle done button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnDone(object sender, RoutedEventArgs args)
         {
             NavigationService.GoBack();

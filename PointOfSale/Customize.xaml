@@ -33,8 +33,8 @@
         <Button Width="180" Height="60" Grid.Row="3" Grid.Column="0" Click="SelectSide" FontSize="20">Friceritops</Button>
         <Button Width="180" Height="60" Grid.Row="3" Grid.Column="1" Click="SelectEntree" FontSize="20" Name="EntreeButton">Entree</Button>
         <Button Width="180" Height="60" Grid.Row="3" Grid.Column="2" Click="SelectDrink" FontSize="20">Sodasaurus</Button>
-        <RadioButton HorizontalAlignment="Center" Width="100" Height="30" Grid.Row="5" Grid.Column="0" FontSize="20">Small</RadioButton>
-        <RadioButton HorizontalAlignment="Center" Width="100" Height="30" Grid.Row="5" Grid.Column="1" FontSize="20">Medium</RadioButton>
-        <RadioButton HorizontalAlignment="Center" Width="100" Height="30" Grid.Row="5" Grid.Column="2" FontSize="20">Large</RadioButton>
+        <RadioButton HorizontalAlignment="Center" Width="100" Height="30" Grid.Row="5" Grid.Column="0" FontSize="20" Click="OnChangeSide" Tag="Small">Small</RadioButton>
+        <RadioButton HorizontalAlignment="Center" Width="100" Height="30" Grid.Row="5" Grid.Column="1" FontSize="20" Click="OnChangeSide" Tag="Medium">Medium</RadioButton>
+        <RadioButton HorizontalAlignment="Center" Width="100" Height="30" Grid.Row="5" Grid.Column="2" FontSize="20" Click="OnChangeSide" Tag="Large">Large</RadioButton>
     </Grid>
 </Page>

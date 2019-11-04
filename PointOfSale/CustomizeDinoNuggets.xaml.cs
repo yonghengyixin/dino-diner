@@ -29,11 +29,21 @@ namespace PointOfSale
             this.dn = dn;
         }
 
+        /// <summary>
+        /// handle add nugget button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnAddNugget(object sender, RoutedEventArgs args)
         {
             dn.AddNugget();
         }
 
+        /// <summary>
+        /// handle done button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnDone(object sender, RoutedEventArgs args)
         {
             NavigationService.GoBack();

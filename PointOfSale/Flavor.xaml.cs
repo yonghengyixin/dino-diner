@@ -24,12 +24,20 @@ namespace PointOfSale
     {
         private Sodasaurus soda;
 
-        
+        private CretaceousCombo combo;
+
         public Flavor(Sodasaurus drink)
         {
             InitializeComponent();
             this.soda = drink;
             
+        }
+
+        public Flavor(CretaceousCombo combo)
+        {
+            InitializeComponent();
+            this.combo = combo;
+            soda = (Sodasaurus)combo.Drink;
         }
 
         /// <summary>
@@ -41,8 +49,16 @@ namespace PointOfSale
         {
             if (sender is FrameworkElement element)
             {
-                soda.Flavor = (DDF)Enum.Parse(typeof(DDF), element.Tag.ToString());
-                NavigationService.Navigate(new DrinkSelection(soda));
+                if(combo == null)
+                {
+                    soda.Flavor = (DDF)Enum.Parse(typeof(DDF), element.Tag.ToString());
+                    NavigationService.Navigate(new DrinkSelection(soda));
+                }
+                else
+                {
+                    soda.Flavor = (DDF)Enum.Parse(typeof(DDF), element.Tag.ToString());
+                    NavigationService.Navigate(new DrinkSelection(combo));
+                }
             }
             
         }

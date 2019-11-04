@@ -25,21 +25,41 @@ namespace PointOfSale
             InitializeComponent();
         }
 
+        /// <summary>
+        /// select combo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         void SelectCombo(object sender, RoutedEventArgs args)
         {
             NavigationService.Navigate(new ComboSelection());
         }
 
+        /// <summary>
+        /// select entree
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         void SelectEntree(object sender, RoutedEventArgs args)
         {
             NavigationService.Navigate(new EntreeSelection());
         }
 
+        /// <summary>
+        /// select side
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         void SelectSide(object sender, RoutedEventArgs args)
         {
             NavigationService.Navigate(new SideSelection());
         }
 
+        /// <summary>
+        /// select drink
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         void SelectDrink(object  sender, RoutedEventArgs args)
         {
             NavigationService.Navigate(new DrinkSelection());

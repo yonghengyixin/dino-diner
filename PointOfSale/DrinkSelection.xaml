@@ -29,6 +29,7 @@
             <TextBlock HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Text="Size" VerticalAlignment="Top" Height="31" Width="44" FontSize="20"/>
             <TextBlock HorizontalAlignment="Center" Grid.Row="1" Grid.Column="0" TextWrapping="Wrap" Text="Side" VerticalAlignment="Top" Height="31" Width="43" FontSize="20"/>
             <TextBlock HorizontalAlignment="Center" Grid.Row="1" Grid.Column="2" TextWrapping="Wrap" Text="Special" VerticalAlignment="Top" Height="31" Width="68" FontSize="20" RenderTransformOrigin="0.508,0.504"/>
+            <TextBlock HorizontalAlignment="Center" Grid.Row="5" Grid.Column="1" TextWrapping="Wrap" Text="Note: combo can't change size in this page!" FontSize="15"/>
 
             <Button Click="Sodasaurus_Click" x:Name="soda" Width="180" Height="60" Grid.Row="2" Grid.Column="0" FontSize="20">Sodasaurus</Button>
             <Button Click="Tyrannotea_Click" x:Name="tea" Width="180" Height="60" Grid.Row="3" Grid.Column="0" FontSize="20">Tyrannotea</Button>

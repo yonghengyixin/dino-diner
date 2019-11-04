@@ -29,21 +29,41 @@ namespace PointOfSale
             this.bt = bt;
         }
 
+        /// <summary>
+        /// handle hold bun button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnHoldBun(object sender,RoutedEventArgs args)
         {
             bt.HoldBun();
         }
 
+        /// <summary>
+        /// handle hold peppers button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnHoldPeppers(object sender, RoutedEventArgs args)
         {
             bt.HoldPeppers();
         }
 
+        /// <summary>
+        /// handle hold onion button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnHoldOnions(object sender, RoutedEventArgs args)
         {
             bt.HoldOnion();
         }
 
+        /// <summary>
+        /// handle hold ondone button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnDone(object sender, RoutedEventArgs args)
         {
             NavigationService.GoBack();
