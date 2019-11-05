@@ -40,6 +40,18 @@ namespace PointOfSale
             {
                 NavigationService?.Navigate(new SideSelection(side));
             }
+            else if(OrderItems.SelectedItem is Drink drink)
+            {
+                NavigationService?.Navigate(new DrinkSelection(drink));
+            }
+            else if(OrderItems.SelectedItem is Entree entree)
+            {
+                NavigationService?.Navigate(new EntreeSelection(entree));
+            }
+            else if(OrderItems.SelectedItem is CretaceousCombo combo)
+            {
+                NavigationService?.Navigate(new Customize(combo));
+            }
         }
 
         /// <summary>

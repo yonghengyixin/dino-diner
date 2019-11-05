@@ -21,6 +21,7 @@ namespace PointOfSale
     /// </summary>
     public partial class ComboSelection : Page
     {
+
         public ComboSelection()
         {
             InitializeComponent();

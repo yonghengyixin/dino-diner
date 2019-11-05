@@ -28,7 +28,7 @@
                  Grid.ColumnSpan="2"
                  Name ="OrderItems"
                  ItemsSource="{Binding Path=Items}"
-                 IsSynchronizedWithCurrentItem="True"
+                 IsSynchronizedWithCurrentItem="False"
                  SelectionChanged="OnSelectionChanged">
                 <ListBox.ItemTemplate>
                 <DataTemplate>

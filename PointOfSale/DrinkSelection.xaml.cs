@@ -40,9 +40,6 @@ namespace PointOfSale
         public DrinkSelection(CretaceousCombo combo)
         {
             InitializeComponent();
-            MakeSmall.IsEnabled = false;
-            MakeMedium.IsEnabled = false;
-            MakeLarge.IsEnabled = false;
             lemon.IsEnabled = false;
             flavor.IsEnabled = false;
             ice.IsEnabled = false;
@@ -243,7 +240,15 @@ namespace PointOfSale
             }
             else if(drink is Sodasaurus soda)
             {
-                NavigationService.Navigate(new Flavor(combo));
+                if (combo == null)
+                {
+                    NavigationService.Navigate(new Flavor(soda));
+                }
+                else
+                {
+                    NavigationService.Navigate(new Flavor(combo));
+
+                }
             }
             
         }

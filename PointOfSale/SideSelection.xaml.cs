@@ -29,15 +29,11 @@ namespace PointOfSale
         public SideSelection()
         {
             InitializeComponent();
-            MakeDone.IsEnabled = false;
         }
 
         public SideSelection(CretaceousCombo combo)
         {
             InitializeComponent();
-            MakeSmall.IsEnabled = false;
-            MakeMedium.IsEnabled = false;
-            MakeLarge.IsEnabled = false;
             this.combo = combo;
             side = combo.Side;
         }
@@ -45,7 +41,6 @@ namespace PointOfSale
         public SideSelection(Side side)
         {
             InitializeComponent();
-            MakeDone.IsEnabled = false;
             this.side = side;
         }
 
@@ -65,7 +60,6 @@ namespace PointOfSale
                 }
                 else
                 {
-                    MakeDone.IsEnabled = true;
                     combo.Side = new Fryceritops();
                     side = combo.Side;
                 }
@@ -89,7 +83,6 @@ namespace PointOfSale
                 }
                 else
                 {
-                    MakeDone.IsEnabled = true;
                     combo.Side = new MeteorMacAndCheese();
                     side = combo.Side;
                 }
@@ -107,13 +100,11 @@ namespace PointOfSale
             {
                 if(combo == null)
                 {
-                    MakeDone.IsEnabled = false;
                     side = new MezzorellaSticks();
                     order.Add(side);
                 }
                 else
                 {
-                    MakeDone.IsEnabled = true;
                     combo.Side = new MezzorellaSticks();
                     side = combo.Side;
                 }
@@ -131,13 +122,11 @@ namespace PointOfSale
             {
                 if(combo == null)
                 {
-                    MakeDone.IsEnabled = false;
                     side = new Triceritots();
                     order.Add(side);
                 }
                 else
                 {
-                    MakeDone.IsEnabled = true;
                     combo.Side = new Triceritots();
                     side = combo.Side;
                 }
@@ -149,12 +138,18 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        private void OnChangeSide(object sender, RoutedEventArgs args)
+        private void OnChangeSize(object sender, RoutedEventArgs args)
         {
             if(sender is FrameworkElement element)
             {
-                side.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
-                NavigationService.GoBack();
+                if (combo == null)
+                {
+                    side.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
+                }
+                else
+                {
+                    combo.Side.Size = (DDSize)Enum.Parse(typeof(DDSize), element.Tag.ToString());
+                }
             }
         }
 
@@ -165,8 +160,7 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void Done(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new Customize(combo));
-            
+            NavigationService.GoBack();
         }
     }
 }
