@@ -1,0 +1,22 @@
+﻿@page
+@model Website.Pages.MenuPageModel
+@{
+    ViewData["Title"] = "Menu";
+}
+
+<h1>Menu</h1>
+
+<h2>Combos</h2>
+<div class="menu-item">
+    @foreach (CretaceousCombo items in @Model.Menu.AvailableCombos)
+    {
+
+    }
+</div>
+
+<h2>Entree</h2>
+
+<h2>Sides</h2>
+
+<h2>Drinks</h2>
+
