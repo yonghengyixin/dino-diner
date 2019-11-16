@@ -12,3 +12,8 @@ body {
     padding-right: 15px;
 }
 
+.menu-item{
+    display: flex;
+    flex-direction: row;
+}
+
