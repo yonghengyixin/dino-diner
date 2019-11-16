@@ -6,6 +6,7 @@ namespace DinoDiner.Menu
 {
     public class Menu
     {
+
         /// <summary>
         /// return all items
         /// </summary>

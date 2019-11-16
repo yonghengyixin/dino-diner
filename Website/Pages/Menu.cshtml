@@ -1,5 +1,5 @@
 ﻿@page
-@model Website.Pages.MenuPageModel
+@model Website.Pages.MenuModel
 @{
     ViewData["Title"] = "Menu";
 }
@@ -7,160 +7,108 @@
 <h1>Menu</h1>
 
 <h2>Combos</h2>
-<div class="menu-item">
-    <p>Brontowurst Combo
-        <ul>
-            <li>Brontowurst</li>
-            <li>Fryceritops(small)</li>
-            <li>Cola Sodasaurus(small)</li>
-            <li>Price: 7.35</li>
-            <li>Calories: 832</li>
-            <li>ingredients:
-                <ul>
-                    <li>Brontowurst: brautwurst, whole-wheat bun, peppers, and onions.</li>
-                    <li>Fryceritops: potatoes, salt, and vegtable oil.</li>
-                    <li>Cola Sodasaurus: Water, Natural Flavors, and Cane Sugar.</li>
-                </ul>
-            </li>
-        </ul>
-    </p>
-    <p></p>
-</div>
 
 <div class="menu-item">
-    <p>
-        Dino Nuggets Combo
-        <ul>
-            <li>Dino Nuggets(6 pieces)</li>
-            <li>Fryceritops(small)</li>
-            <li>Cola Sodasaurus(small)</li>
-            <li>Price: 6.74</li>
-            <li>Calories: 688</li>
-            <li>
-                ingredients:
+    <div class="row">
+        @for(int i = 0; i < Model.Menu.AvailableCombos.Count; i++)
+        {
+            <p>@Model.Menu.AvailableCombos[i].ToString()
                 <ul>
-                    <li>Fryceritops: potatoes, salt, and vegtable oil.</li>
-                    <li>Cola Sodasaurus: Water, Natural Flavors, and Cane Sugar.</li>
+                    <li>Price: @Model.Menu.AvailableCombos[i].Price</li>
+                    <li>Calories: @Model.Menu.AvailableCombos[i].Calories</li>
+                    <li>ingredients:
+                        <ul>
+                            @for (int j = 0; j < Model.Menu.AvailableCombos[i].Ingredients.Count; j++)
+                            {
+                                <li>@Model.Menu.AvailableCombos[i].Ingredients[j].ToString()</li>
+                            }
+                        </ul>
+                    </li>
                 </ul>
-            </li>
-        </ul>
-    </p>
-    <p></p>
-</div>
-
-<div class="menu-item">
-    <p>
-        Pterodactyl Wings Combo
-        <ul>
-            <li>Pterodactyl Wings</li>
-            <li>Fryceritops(small)</li>
-            <li>Cola Sodasaurus(small)</li>
-            <li>Price: 9.70</li>
-            <li>Calories: 652</li>
-            <li>
-                ingredients:
-                <ul>
-                    <li>Pterodactyl Wings: Chicken and Wing Sauce</li>
-                    <li>Fryceritops: potatoes, salt, and vegtable oil.</li>
-                    <li>Cola Sodasaurus: Water, Natural Flavors, and Cane Sugar.</li>
-                </ul>
-            </li>
-        </ul>
-    </p>
-    <p></p>
-</div>
-
-<div class="menu-item">
-    <p>
-        Steakosaurus Burger Combo
-        <ul>
-            <li>Steakosaurus Burger</li>
-            <li>Fryceritops(small)</li>
-            <li>Cola Sodasaurus(small)</li>
-            <li>Price: 7.35</li>
-            <li>Calories: 832</li>
-            <li>
-                ingredients:
-                <ul>
-                    <li>Steakosaurus Burger: whole wheat bun, steakburger pattie, pickle, ketchup, and mustard.</li>
-                    <li>Fryceritops: potatoes, salt, and vegtable oil.</li>
-                    <li>Cola Sodasaurus: Water, Natural Flavors, and Cane Sugar.</li>
-                </ul>
-            </li>
-        </ul>
-    </p>
-    <p></p>
-</div>
-
-<div class="menu-item">
-    <p>
-        T-Rex King Burger Combo
-        <ul>
-            <li>T-Rex King Burger</li>
-            <li>Fryceritops(small)</li>
-            <li>Cola Sodasaurus(small)</li>
-            <li>Price: 10.94</li>  
-            <li>Calories: 1062</li>
-            <li>
-                ingredients:
-                <ul>
-                    <li>T-Rex King Burger: a whole wheat bun, three steakburger patties, lettuce, tomato, onion, pickle, ketchup, mustard, and mayo.</li>
-                    <li>Fryceritops: potatoes, salt, and vegtable oil.</li>
-                    <li>Cola Sodasaurus: Water, Natural Flavors, and Cane Sugar.</li>
-                </ul>
-            </li>
-        </ul>
-    </p>
-    <p></p>
-</div>
-
-<div class="menu-item">
-    <p>
-        Veloci-Wrap Combo
-        <ul>
-            <li>Veloci-Wrap</li>
-            <li>Fryceritops(small)</li>
-            <li>Cola Sodasaurus(small)</li>
-            <li>Price: 9.35</li>  
-            <li>Calories: 690</li>
-            <li>
-                ingredients:
-                <ul>
-                    <li>Veloci-Wrap: a flour tortilla, chicken breast, romaine lettuce, Ceasar dressing, and parmesan cheese.</li>
-                    <li>Fryceritops: potatoes, salt, and vegtable oil.</li>
-                    <li>Cola Sodasaurus: Water, Natural Flavors, and Cane Sugar.</li>
-                </ul>
-            </li>
-        </ul>
-    </p>
-    <p></p>
-</div>
-
-<div class="menu-item">
-    <p>
-        Prehistoric PB & J Combo
-        <ul>
-            <li>Prehistoric PB & J</li>
-            <li>Fryceritops(small)</li>
-            <li>Cola Sodasaurus(small)</li>
-            <li>Price: 9.01</li>  
-            <li>Calories: 817</li>
-            <li>
-                ingredients:
-                <ul>
-                    <li>Prehistoric PB & J: bread, peanut butter, and jelly.</li>
-                    <li>Fryceritops: potatoes, salt, and vegtable oil.</li>
-                    <li>Cola Sodasaurus: Water, Natural Flavors, and Cane Sugar.</li>
-                </ul>
-            </li>
-        </ul>
-    </p>
-    <p></p>
+            </p>
+            <p></p>
+        }
+    </div>
 </div>
 
 <h2>Entree</h2>
 
+<div class="menu-item">
+    <div class="row">
+        @for (int i = 0; i < Model.Menu.AvailableEntrees.Count; i++)
+        {
+            <p>
+                @Model.Menu.AvailableEntrees[i].ToString()
+            <ul>
+                <li>Price: @Model.Menu.AvailableEntrees[i].Price</li>
+                <li>Calories: @Model.Menu.AvailableEntrees[i].Calories</li>
+                <li>
+                    ingredients:
+                    <ul>
+                        @for (int j = 0; j < Model.Menu.AvailableEntrees[i].Ingredients.Count; j++)
+                        {
+                            <li>@Model.Menu.AvailableEntrees[i].Ingredients[j].ToString()</li>
+                        }
+                    </ul>
+                </li>
+            </ul>
+        </p>
+        <p></p>
+    }
+    </div>
+</div>
+
 <h2>Sides</h2>
 
+<div class="menu-item">
+    <div class="row">
+        @for (int i = 0; i < Model.Menu.AvailableSides.Count; i++)
+        {
+            <p>
+                @Model.Menu.AvailableSides[i].ToString()
+                <ul>
+                    <li>Price: @Model.Menu.AvailableSides[i].Price</li>
+                    <li>Calories: @Model.Menu.AvailableSides[i].Calories</li>
+                    <li>
+                        ingredients:
+                        <ul>
+                            @for (int j = 0; j < Model.Menu.AvailableSides[i].Ingredients.Count; j++)
+                            {
+                                <li>@Model.Menu.AvailableSides[i].Ingredients[j].ToString()</li>
+                            }
+                        </ul>
+                    </li>
+                </ul>
+            </p>
+            <p></p>
+        }
+    </div>
+</div>
+
 <h2>Drinks</h2>
+
+<div class="menu-item">
+    <div class="row">
+        @for (int i = 0; i < Model.Menu.AvailableDrinks.Count; i++)
+        {
+            <p>
+                @Model.Menu.AvailableDrinks[i].ToString()
+                <ul>
+                    <li>Price: @Model.Menu.AvailableDrinks[i].Price</li>
+                    <li>Calories: @Model.Menu.AvailableDrinks[i].Calories</li>
+                    <li>
+                        ingredients:
+                        <ul>
+                            @for (int j = 0; j < Model.Menu.AvailableDrinks[i].Ingredients.Count; j++)
+                            {
+                                <li>@Model.Menu.AvailableDrinks[i].Ingredients[j].ToString()</li>
+                            }
+                        </ul>
+                    </li>
+                </ul>
+            </p>
+            <p></p>
+        }
+    </div>
+</div>
 

@@ -8,11 +8,12 @@ using DinoDiner.Menu;
 
 namespace Website.Pages
 {
-    public class MenuPageModel : PageModel
+    public class MenuModel : PageModel
     {
+        Menu menu = new Menu();
         public Menu Menu
         {
-            get;
+            get { return menu; }
         }
 
         public void OnGet()
