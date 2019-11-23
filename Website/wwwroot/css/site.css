@@ -17,3 +17,21 @@ body {
     flex-direction: row;
 }
 
+.content{
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+
+form {
+    width: 250px;
+    background-color: lightgray;
+    flex-grow: 0;
+    padding: 50px;
+    overflow: hidden;
+}
+
+.menu {
+    padding-right: 250px;
+}
+
