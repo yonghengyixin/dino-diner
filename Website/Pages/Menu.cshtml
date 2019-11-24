@@ -11,21 +11,21 @@
 
             <div class="menu-item">
                 <div class="row">
-                    @for (int i = 0; i < Model.Menu.AvailableCombos.Count; i++)
+                    @for (int i = 0; i < Model.Combos.Count; i++)
                     {
                         <p>
-                            @Model.Menu.AvailableCombos[i].ToString()
+                            @Model.Combos[i].ToString()
                             <ul>
                                 <li>Drink: Cola Sodasaurus</li>
                                 <li>Side: Fryceritops</li>
-                                <li>Price: @Model.Menu.AvailableCombos[i].Price</li>
-                                <li>Calories: @Model.Menu.AvailableCombos[i].Calories</li>
+                                <li>Price: @Model.Combos[i].Price</li>
+                                <li>Calories: @Model.Combos[i].Calories</li>
                                 <li>
                                     ingredients:
                                     <ul>
-                                        @for (int j = 0; j < Model.Menu.AvailableCombos[i].Ingredients.Count; j++)
+                                        @for (int j = 0; j < Model.Combos[i].Ingredients.Count; j++)
                                         {
-                                            <li>@Model.Menu.AvailableCombos[i].Ingredients[j].ToString()</li>
+                                            <li>@Model.Combos[i].Ingredients[j].ToString()</li>
                                         }
                                     </ul>
                                 </li>
@@ -40,19 +40,19 @@
 
             <div class="menu-item">
                 <div class="row">
-                    @for (int i = 0; i < Model.Menu.AvailableEntrees.Count; i++)
+                    @for (int i = 0; i < Model.Entree.Count; i++)
                     {
                         <p>
-                            @Model.Menu.AvailableEntrees[i].ToString()
+                            @Model.Entree[i].ToString()
                             <ul>
-                                <li>Price: @Model.Menu.AvailableEntrees[i].Price</li>
-                                <li>Calories: @Model.Menu.AvailableEntrees[i].Calories</li>
+                                <li>Price: @Model.Entree[i].Price</li>
+                                <li>Calories: @Model.Entree[i].Calories</li>
                                 <li>
                                     ingredients:
                                     <ul>
-                                        @for (int j = 0; j < Model.Menu.AvailableEntrees[i].Ingredients.Count; j++)
+                                        @for (int j = 0; j < Model.Entree[i].Ingredients.Count; j++)
                                         {
-                                            <li>@Model.Menu.AvailableEntrees[i].Ingredients[j].ToString()</li>
+                                            <li>@Model.Entree[i].Ingredients[j].ToString()</li>
                                         }
                                     </ul>
                                 </li>
@@ -67,19 +67,19 @@
 
             <div class="menu-item">
                 <div class="row">
-                    @for (int i = 0; i < Model.Menu.AvailableSides.Count; i++)
+                    @for (int i = 0; i < Model.Side.Count; i++)
                     {
                         <p>
-                            @Model.Menu.AvailableSides[i].ToString()
+                            @Model.Side[i].ToString()
                             <ul>
-                                <li>Price: @Model.Menu.AvailableSides[i].Price</li>
-                                <li>Calories: @Model.Menu.AvailableSides[i].Calories</li>
+                                <li>Price: @Model.Side[i].Price</li>
+                                <li>Calories: @Model.Side[i].Calories</li>
                                 <li>
                                     ingredients:
                                     <ul>
-                                        @for (int j = 0; j < Model.Menu.AvailableSides[i].Ingredients.Count; j++)
+                                        @for (int j = 0; j < Model.Side[i].Ingredients.Count; j++)
                                         {
-                                            <li>@Model.Menu.AvailableSides[i].Ingredients[j].ToString()</li>
+                                            <li>@Model.Side[i].Ingredients[j].ToString()</li>
                                         }
                                     </ul>
                                 </li>
@@ -94,19 +94,19 @@
 
             <div class="menu-item">
                 <div class="row">
-                    @for (int i = 0; i < Model.Menu.AvailableDrinks.Count; i++)
+                    @for (int i = 0; i < Model.Drink.Count; i++)
                     {
                         <p>
-                            @Model.Menu.AvailableDrinks[i].ToString()
+                            @Model.Drink[i].ToString()
                             <ul>
-                                <li>Price: @Model.Menu.AvailableDrinks[i].Price</li>
-                                <li>Calories: @Model.Menu.AvailableDrinks[i].Calories</li>
+                                <li>Price: @Model.Drink[i].Price</li>
+                                <li>Calories: @Model.Drink[i].Calories</li>
                                 <li>
                                     ingredients:
                                     <ul>
-                                        @for (int j = 0; j < Model.Menu.AvailableDrinks[i].Ingredients.Count; j++)
+                                        @for (int j = 0; j < Model.Drink[i].Ingredients.Count; j++)
                                         {
-                                            <li>@Model.Menu.AvailableDrinks[i].Ingredients[j].ToString()</li>
+                                            <li>@Model.Drink[i].Ingredients[j].ToString()</li>
                                         }
                                     </ul>
                                 </li>
@@ -141,7 +141,7 @@
                     Drink
                 </label>
 
-                <h4>Price</h4>
+                <h4>Price Filter</h4>
                 <label>
                     Minimum:
                     <input type="number" min="0" max="10" step="0.1" name="minIMDB" value="@Model.minIMDB" />
@@ -150,6 +150,15 @@
                     Maximum:
                     <input type="number" min="0" max="10" step="0.1" name="maxIMDB" value="@Model.maxIMDB" />
                 </label>
+
+                <h5>Ingredient Filter</h5>
+                @foreach (string ingredient in Model.Ingre)
+                {
+                    <label>
+                        <input type="checkbox" name="IChoose" value = ingredient />
+                        @ingredient
+                    </label>
+                }
 
 
             </div>

@@ -6,6 +6,7 @@ namespace DinoDiner.Menu
 {
     public class Menu
     {
+        public HashSet<string> PossibleIngredients = new HashSet<string>();
 
         /// <summary>
         /// return all items
@@ -135,6 +136,18 @@ namespace DinoDiner.Menu
 
                 return list;
             }
+        }
+
+        public void AllIngredient(List<IMenuItem> AllItems)
+        {
+            foreach(IMenuItem item in AllItems)
+            {
+                foreach(string ingredient in item.Ingredients)
+                {
+                    PossibleIngredients.Add(ingredient);
+                }
+            }
+            //return
         }
 
         /// <summary>

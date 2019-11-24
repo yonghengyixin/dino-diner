@@ -17,20 +17,23 @@ namespace Website.Pages
         public List<string> MChoose { get; set; } = new List<string>();
 
         [BindProperty]
+        public List<string> IChoose { get; set; } = new List<string>();
+
+        [BindProperty]
         public float? minIMDB { get; set; }
 
         [BindProperty]
         public float? maxIMDB { get; set; }
 
-        public List<IMenuItem> item;
+        public List<IMenuItem> Combos { get; set; } = new List<IMenuItem>();
 
-        public List<IMenuItem> Combos { get; set; }
+        public List<IMenuItem> Entree { get; set; } = new List<IMenuItem>();
 
-        public List<IMenuItem> Entree { get; set; }
+        public List<IMenuItem> Drink { get; set; } = new List<IMenuItem>();
 
-        public List<IMenuItem> Drink { get; set; }
+        public List<IMenuItem> Side { get; set; } = new List<IMenuItem>();
 
-        public List<IMenuItem> Side { get; set; }
+        public HashSet<string> Ingre { get; set; } = new HashSet<string>();
 
         Menu menu = new Menu();
         public Menu Menu
@@ -40,12 +43,28 @@ namespace Website.Pages
 
         public void OnGet()
         {
-            item = Menu.AvailableMenuTtems;
+            Combos.AddRange(Menu.AvailableCombos);
+            Entree.AddRange(Menu.AvailableEntrees);
+            Drink.AddRange(Menu.AvailableDrinks);
+            Side.AddRange(Menu.AvailableSides);
+            Menu.AllIngredient(Combos);
+            Menu.AllIngredient(Entree);
+            Menu.AllIngredient(Drink);
+            Menu.AllIngredient(Side);
+            Ingre = Menu.PossibleIngredients;
         }
 
         public void OnPost()
         {
-            item = Menu.AvailableMenuTtems;
+            Combos.AddRange(Menu.AvailableCombos);
+            Entree.AddRange(Menu.AvailableEntrees);
+            Drink.AddRange(Menu.AvailableDrinks);
+            Side.AddRange(Menu.AvailableSides);
+            Menu.AllIngredient(Combos);
+            Menu.AllIngredient(Entree);
+            Menu.AllIngredient(Drink);
+            Menu.AllIngredient(Side);
+            Ingre = Menu.PossibleIngredients;
 
             if (search != null)
             {
@@ -57,16 +76,75 @@ namespace Website.Pages
 
             if (MChoose.Count != 0)
             {
-                item = FilterByMPAA(MChoose);
+                FilterByMPAA(MChoose);
             }
 
             if (minIMDB != null)
             {
-                item = FilterByMinIMDB(item, (float)minIMDB);
+                Combos = FilterByMinIMDB(Combos, (float)minIMDB);
+                Entree = FilterByMinIMDB(Entree, (float)minIMDB);
+                Drink = FilterByMinIMDB(Drink, (float)minIMDB);
+                Side = FilterByMinIMDB(Side, (float)minIMDB);
             }
             if (maxIMDB != null)
             {
-                item = FilterByMaxIMDB(item, (float)maxIMDB);
+                Combos = FilterByMaxIMDB(Combos, (float)maxIMDB);
+                Entree = FilterByMaxIMDB(Entree, (float)maxIMDB);
+                Drink = FilterByMaxIMDB(Drink, (float)maxIMDB);
+                Side = FilterByMaxIMDB(Side, (float)maxIMDB);
+            }
+
+            if(IChoose.Count != 0)
+            {
+                foreach (string str in Ingre)
+                {
+                    if (IChoose.Contains(str))
+                    {
+                        foreach(IMenuItem menu in Combos)
+                        {
+                            foreach(string ing in menu.Ingredients)
+                            {
+                                if (str.Contains(ing))
+                                {
+                                    menu.Ingredients.Remove(ing);
+                                }
+                            }
+                        }
+
+                        foreach (IMenuItem menu in Entree)
+                        {
+                            foreach (string ing in menu.Ingredients)
+                            {
+                                if (str.Contains(ing))
+                                {
+                                    menu.Ingredients.Remove(ing);
+                                }
+                            }
+                        }
+
+                        foreach (IMenuItem menu in Drink)
+                        {
+                            foreach (string ing in menu.Ingredients)
+                            {
+                                if (str.Contains(ing))
+                                {
+                                    menu.Ingredients.Remove(ing);
+                                }
+                            }
+                        }
+
+                        foreach (IMenuItem menu in Side)
+                        {
+                            foreach (string ing in menu.Ingredients)
+                            {
+                                if (str.Contains(ing))
+                                {
+                                    menu.Ingredients.Remove(ing);
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
 
@@ -85,27 +163,25 @@ namespace Website.Pages
             return result;
         }
 
-        public List<IMenuItem> FilterByMPAA(List<string> mpaa)
+        public void FilterByMPAA(List<string> mpaa)
         {
-            List<IMenuItem> results = new List<IMenuItem>();
-
-            if (mpaa.Contains("Combo"))
+            if (!mpaa.Contains("Combo"))
             {
-                results.AddRange(Menu.AvailableCombos);
+                Combos = new List<IMenuItem>();
             }
-            if (mpaa.Contains("Entree"))
+            if (!mpaa.Contains("Entree"))
             {
-                results.AddRange(Menu.AvailableEntrees);
+                Entree = new List<IMenuItem>();
             }
-            if (mpaa.Contains("Drink"))
+            if (!mpaa.Contains("Drink"))
             {
-                results.AddRange(Menu.AvailableDrinks);
+                Drink = new List<IMenuItem>();
             }
-            if (mpaa.Contains("Side"))
+            if (!mpaa.Contains("Side"))
             {
-                results.AddRange(Menu.AvailableSides);
+                Side = new List<IMenuItem>();
             }
-            return results;
+            
         }
 
         public static List<IMenuItem> FilterByMinIMDB(List<IMenuItem> menus, float? minIMDB)

@@ -35,3 +35,8 @@ form {
     padding-right: 250px;
 }
 
+.checkbox-list {
+    display: flex;
+    flex-direction: column;
+}
+
