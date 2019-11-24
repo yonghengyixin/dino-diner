@@ -25,7 +25,10 @@
                                     <ul>
                                         @for (int j = 0; j < Model.Combos[i].Ingredients.Count; j++)
                                         {
-                                            <li>@Model.Combos[i].Ingredients[j].ToString()</li>
+                                            @if (!Model.IChoose.Contains(Model.Combos[i].Ingredients[j]))
+                                            {
+                                                <li>@Model.Combos[i].Ingredients[j].ToString()</li>
+                                            }
                                         }
                                     </ul>
                                 </li>
@@ -52,7 +55,10 @@
                                     <ul>
                                         @for (int j = 0; j < Model.Entree[i].Ingredients.Count; j++)
                                         {
-                                            <li>@Model.Entree[i].Ingredients[j].ToString()</li>
+                                            @if (!Model.IChoose.Contains(Model.Entree[i].Ingredients[j]))
+                                            {
+                                                <li>@Model.Entree[i].Ingredients[j].ToString()</li>
+                                            }
                                         }
                                     </ul>
                                 </li>
@@ -79,7 +85,10 @@
                                     <ul>
                                         @for (int j = 0; j < Model.Side[i].Ingredients.Count; j++)
                                         {
-                                            <li>@Model.Side[i].Ingredients[j].ToString()</li>
+                                            @if (!Model.IChoose.Contains(Model.Side[i].Ingredients[j]))
+                                            {
+                                                <li>@Model.Side[i].Ingredients[j].ToString()</li>
+                                            }
                                         }
                                     </ul>
                                 </li>
@@ -106,7 +115,10 @@
                                     <ul>
                                         @for (int j = 0; j < Model.Drink[i].Ingredients.Count; j++)
                                         {
-                                            <li>@Model.Drink[i].Ingredients[j].ToString()</li>
+                                            @if (!Model.IChoose.Contains(Model.Drink[i].Ingredients[j]))
+                                            {
+                                                <li>@Model.Drink[i].Ingredients[j].ToString()</li>
+                                            }
                                         }
                                     </ul>
                                 </li>
@@ -155,7 +167,7 @@
                 @foreach (string ingredient in Model.Ingre)
                 {
                     <label>
-                        <input type="checkbox" name="IChoose" value = ingredient />
+                        <input type="checkbox" name="IChoose" value = "@ingredient.ToString()" />
                         @ingredient
                     </label>
                 }
