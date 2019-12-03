@@ -133,6 +133,14 @@ namespace Website.Pages
                 Drink = FilterByMaxIMDB(Drink, (float)maxIMDB);
                 Side = FilterByMaxIMDB(Side, (float)maxIMDB);
             }
+
+            if(Ingre.Count != 0)
+            {
+                Combos = RemoveItem(Combos, IChoose);
+                Entree = RemoveItem(Entree, IChoose);
+                Drink = RemoveItem(Drink, IChoose);
+                Side = RemoveItem(Side, IChoose);
+            }
             
         }
 
@@ -218,6 +226,35 @@ namespace Website.Pages
                 }
             }
             return results;
+        }
+
+        /// <summary>
+        /// remove item if they have customer's choose
+        /// </summary>
+        /// <param name="menu"></param>
+        /// <param name="ing"></param>
+        /// <returns></returns>
+        public static List<IMenuItem> RemoveItem(List<IMenuItem> menu, List<string> ing)
+        {
+            List<IMenuItem> result = new List<IMenuItem>();
+            
+            foreach(IMenuItem item in menu)
+            {
+                bool check = true;
+                foreach (string s in ing)
+                {
+                    if (item.Ingredients.Contains(s))
+                    {
+                        check = false;
+                        break;
+                    }
+                }
+                if (check)
+                {
+                    result.Add(item);
+                }
+            }
+            return result;
         }
 
     }
