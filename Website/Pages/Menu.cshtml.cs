@@ -43,22 +43,22 @@ namespace Website.Pages
         /// <summary>
         /// hold combos
         /// </summary>
-        public List<IMenuItem> Combos { get; set; } = new List<IMenuItem>();
+        public IEnumerable<IMenuItem> Combos { get; set; } = new List<IMenuItem>();
 
         /// <summary>
         /// hold entree
         /// </summary>
-        public List<IMenuItem> Entree { get; set; } = new List<IMenuItem>();
+        public IEnumerable<IMenuItem> Entree { get; set; } = new List<IMenuItem>();
 
         /// <summary>
         /// hold drink
         /// </summary>
-        public List<IMenuItem> Drink { get; set; } = new List<IMenuItem>();
+        public IEnumerable<IMenuItem> Drink { get; set; } = new List<IMenuItem>();
 
         /// <summary>
         /// hold side
         /// </summary>
-        public List<IMenuItem> Side { get; set; } = new List<IMenuItem>();
+        public IEnumerable<IMenuItem> Side { get; set; } = new List<IMenuItem>();
 
         /// <summary>
         /// hold all ingredients
@@ -79,10 +79,11 @@ namespace Website.Pages
         /// </summary>
         public void OnGet()
         {
-            Combos.AddRange(Menu.AvailableCombos);
-            Entree.AddRange(Menu.AvailableEntrees);
-            Drink.AddRange(Menu.AvailableDrinks);
-            Side.AddRange(Menu.AvailableSides);
+            Combos = Menu.AvailableCombos;
+            Entree = Menu.AvailableEntrees;
+            Drink = Menu.AvailableDrinks;
+            Side = Menu.AvailableSides;
+
             Menu.AllIngredient(Combos);
             Menu.AllIngredient(Entree);
             Menu.AllIngredient(Drink);
@@ -95,10 +96,10 @@ namespace Website.Pages
         /// </summary>
         public void OnPost()
         {
-            Combos.AddRange(Menu.AvailableCombos);
-            Entree.AddRange(Menu.AvailableEntrees);
-            Drink.AddRange(Menu.AvailableDrinks);
-            Side.AddRange(Menu.AvailableSides);
+            Combos = Menu.AvailableCombos;
+            Entree = Menu.AvailableEntrees;
+            Drink = Menu.AvailableDrinks;
+            Side = Menu.AvailableSides;
 
             Menu.AllIngredient(Combos);
             Menu.AllIngredient(Entree);
@@ -108,10 +109,15 @@ namespace Website.Pages
 
             if (search != null)
             {
-                Combos = Search(Combos, search);
-                Entree = Search(Entree, search);
-                Drink = Search(Drink, search);
-                Side = Search(Side, search);
+                Combos = Combos.Where(cb => cb.ToString().Contains(search));
+                Entree = Entree.Where(en => en.ToString().Contains(search));
+                Drink = Drink.Where(dr => dr.ToString().Contains(search));
+                Side = Side.Where(sd => sd.ToString().Contains(search));
+
+                //Combos = Search(Combos, search);
+                //Entree = Search(Entree, search);
+                //Drink = Search(Drink, search);
+                //Side = Search(Side, search);
             }
 
             if (MChoose.Count != 0)
@@ -121,25 +127,80 @@ namespace Website.Pages
 
             if (minIMDB != null)
             {
-                Combos = FilterByMinIMDB(Combos, (float)minIMDB);
-                Entree = FilterByMinIMDB(Entree, (float)minIMDB);
-                Drink = FilterByMinIMDB(Drink, (float)minIMDB);
-                Side = FilterByMinIMDB(Side, (float)minIMDB);
+                Combos = Combos.Where(cb => cb.Price >= minIMDB);
+                Entree = Entree.Where(en => en.Price >= minIMDB);
+                Drink = Drink.Where(dr => dr.Price >= minIMDB);
+                Side = Side.Where(sd => sd.Price >= minIMDB);
             }
             if (maxIMDB != null)
             {
-                Combos = FilterByMaxIMDB(Combos, (float)maxIMDB);
-                Entree = FilterByMaxIMDB(Entree, (float)maxIMDB);
-                Drink = FilterByMaxIMDB(Drink, (float)maxIMDB);
-                Side = FilterByMaxIMDB(Side, (float)maxIMDB);
+                Combos = Combos.Where(cb => cb.Price <= maxIMDB);
+                Entree = Entree.Where(en => en.Price <= maxIMDB);
+                Drink = Drink.Where(dr => dr.Price <= maxIMDB);
+                Side = Side.Where(sd => sd.Price <= maxIMDB);
             }
 
             if(Ingre.Count != 0)
             {
-                Combos = RemoveItem(Combos, IChoose);
-                Entree = RemoveItem(Entree, IChoose);
-                Drink = RemoveItem(Drink, IChoose);
-                Side = RemoveItem(Side, IChoose);
+                Combos = Combos.Where(cb =>
+                {
+                    bool check = true;
+                    foreach (string s in IChoose)
+                    {
+                        if (cb.Ingredients.Contains(s))
+                        {
+                            check = false;
+                            break;
+                        }
+                    }
+                    return check;
+                });
+
+                Entree = Entree.Where(en =>
+                {
+                    bool check = true;
+                    foreach (string s in IChoose)
+                    {
+                        if (en.Ingredients.Contains(s))
+                        {
+                            check = false;
+                            break;
+                        }
+                    }
+                    return check;
+                });
+
+                Drink = Drink.Where(dr =>
+                {
+                    bool check = true;
+                    foreach (string s in IChoose)
+                    {
+                        if (dr.Ingredients.Contains(s))
+                        {
+                            check = false;
+                            break;
+                        }
+                    }
+                    return check;
+                });
+
+                Side = Side.Where(sd =>
+                {
+                    bool check = true;
+                    foreach (string s in IChoose)
+                    {
+                        if (sd.Ingredients.Contains(s))
+                        {
+                            check = false;
+                            break;
+                        }
+                    }
+                    return check;
+                });
+                //Combos = RemoveItem(Combos, IChoose);
+                //Entree = RemoveItem(Entree, IChoose);
+                //Drink = RemoveItem(Drink, IChoose);
+                //Side = RemoveItem(Side, IChoose);
             }
             
         }

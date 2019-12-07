@@ -11,26 +11,57 @@
 
             <div class="menu-item">
                 <div class="row">
-                    @for (int i = 0; i < Model.Combos.Count; i++)
+                    @foreach (IMenuItem s in Model.Combos)
                     {
-                        <p>
-                            @Model.Combos[i].ToString()
-                            <ul>
-                                <li>Drink: Cola Sodasaurus</li>
-                                <li>Side: Fryceritops</li>
-                                <li>Price: @Model.Combos[i].Price</li>
-                                <li>Calories: @Model.Combos[i].Calories</li>
-                                <li>
-                                    ingredients:
-                                    <ul>
-                                        @for (int j = 0; j < Model.Combos[i].Ingredients.Count; j++)
-                                        {
-                                            <li>@Model.Combos[i].Ingredients[j].ToString()</li>
-                                        }
-                                    </ul>
-                                </li>
-                            </ul>
-                        </p>
+                        CretaceousCombo combo = s as CretaceousCombo;
+                    <p>
+                        @combo.ToString()
+                        <table>
+
+                            <tr>
+                                <th>Size</th>
+                                <th>Price</th>
+                                <th>Calories</th>
+                            </tr>
+
+                            <tr>
+                                <td>@(combo.Size = Size.Small)</td>
+                                <td>@(combo.Price)</td>
+                                <td>@(combo.Calories)</td>
+                            </tr>
+
+                            <tr>
+                                <td>@(combo.Size = Size.Medium)</td>
+                                <td>@(combo.Price)</td>
+                                <td>@(combo.Calories)</td>
+                            </tr>
+
+                            <tr>
+                                <td>@(combo.Size = Size.Large)</td>
+                                <td>@(combo.Price)</td>
+                                <td>@(combo.Calories)</td>
+                            </tr>
+                        </table>
+                        <ul>
+                            <li>Drink: Cola Sodasaurus</li>
+                            <li>Side: Fryceritops</li>
+                            <li>Price: @combo.Price</li>
+                            <li>Calories: @combo.Calories</li>
+
+                            <li>
+                                ingredients:
+                                <ul>
+                                    @for (int j = 0; j < combo.Ingredients.Count; j++)
+                                    {
+                                        <li>@combo.Ingredients[j].ToString()</li>
+                                    }
+                                </ul>
+                            </li>
+                        </ul>
+                    </p>
+
+                        
+
                         <p></p>
                     }
                 </div>
@@ -40,19 +71,20 @@
 
             <div class="menu-item">
                 <div class="row">
-                    @for (int i = 0; i < Model.Entree.Count; i++)
+                    @foreach (IMenuItem s in Model.Entree)
                     {
+                        Entree entree = s as Entree;
                         <p>
-                            @Model.Entree[i].ToString()
+                            @entree.ToString()
                             <ul>
-                                <li>Price: @Model.Entree[i].Price</li>
-                                <li>Calories: @Model.Entree[i].Calories</li>
+                                <li>Price: @entree.Price</li>
+                                <li>Calories: @entree.Calories</li>
                                 <li>
                                     ingredients:
                                     <ul>
-                                        @for (int j = 0; j < Model.Entree[i].Ingredients.Count; j++)
+                                        @for (int j = 0; j < entree.Ingredients.Count; j++)
                                         {
-                                            <li>@Model.Entree[i].Ingredients[j].ToString()</li>
+                                            <li>@entree.Ingredients[j].ToString()</li>
                                         }
                                     </ul>
                                 </li>
@@ -67,19 +99,46 @@
 
             <div class="menu-item">
                 <div class="row">
-                    @for (int i = 0; i < Model.Side.Count; i++)
+                    @foreach (IMenuItem s in Model.Side)
                     {
+                        Side side = s as Side;
+                        <table>
+
+                            <tr>
+                                <th>Size</th>
+                                <th>Price</th>
+                                <th>Calories</th>
+                            </tr>
+
+                            <tr>
+                                <td>@(side.Size = Size.Small)</td>
+                                <td>@(side.Price)</td>
+                                <td>@(side.Calories)</td>
+                            </tr>
+
+                            <tr>
+                                <td>@(side.Size = Size.Medium)</td>
+                                <td>@(side.Price)</td>
+                                <td>@(side.Calories)</td>
+                            </tr>
+
+                            <tr>
+                                <td>@(side.Size = Size.Large)</td>
+                                <td>@(side.Price)</td>
+                                <td>@(side.Calories)</td>
+                            </tr>
+                        </table>
                         <p>
-                            @Model.Side[i].ToString()
+                            @side.ToString()
                             <ul>
-                                <li>Price: @Model.Side[i].Price</li>
-                                <li>Calories: @Model.Side[i].Calories</li>
+                                <li>Price: @side.Price</li>
+                                <li>Calories: @side.Calories</li>
                                 <li>
                                     ingredients:
                                     <ul>
-                                        @for (int j = 0; j < Model.Side[i].Ingredients.Count; j++)
+                                        @for (int j = 0; j < side.Ingredients.Count; j++)
                                         {
-                                            <li>@Model.Side[i].Ingredients[j].ToString()</li>
+                                            <li>@side.Ingredients[j].ToString()</li>
                                         }
                                     </ul>
                                 </li>
@@ -94,19 +153,47 @@
 
             <div class="menu-item">
                 <div class="row">
-                    @for (int i = 0; i < Model.Drink.Count; i++)
+                    @foreach (IMenuItem s in Model.Drink)
                     {
+                        Drink drink = s as Drink;
+                        <table>
+
+                            <tr>
+                                <th>Size</th>
+                                <th>Price</th>
+                                <th>Calories</th>
+                            </tr>
+
+                            <tr>
+                                <td>@(drink.Size = Size.Small)</td>
+                                <td>@(drink.Price)</td>
+                                <td>@(drink.Calories)</td>
+                            </tr>
+
+                            <tr>
+                                <td>@(drink.Size = Size.Medium)</td>
+                                <td>@(drink.Price)</td>
+                                <td>@(drink.Calories)</td>
+                            </tr>
+
+                            <tr>
+                                <td>@(drink.Size = Size.Large)</td>
+                                <td>@(drink.Price)</td>
+                                <td>@(drink.Calories)</td>
+                            </tr>
+                        </table>
                         <p>
-                            @Model.Drink[i].ToString()
+                            @drink.ToString()
                             <ul>
-                                <li>Price: @Model.Drink[i].Price</li>
-                                <li>Calories: @Model.Drink[i].Calories</li>
+                                @(drink.Size = Size.Small)
+                                <li>Price: @drink.Price</li>
+                                <li>Calories: @drink.Calories</li>
                                 <li>
                                     ingredients:
                                     <ul>
-                                        @for (int j = 0; j < Model.Drink[i].Ingredients.Count; j++)
+                                        @for (int j = 0; j < drink.Ingredients.Count; j++)
                                         {
-                                            <li>@Model.Drink[i].Ingredients[j].ToString()</li>
+                                            <li>@drink.Ingredients[j].ToString()</li>
                                         }
                                     </ul>
                                 </li>

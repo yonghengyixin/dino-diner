@@ -145,7 +145,7 @@ namespace DinoDiner.Menu
         /// put all kinds of ingerdients into PossibleIngredients
         /// </summary>
         /// <param name="AllItems"></param>
-        public void AllIngredient(List<IMenuItem> AllItems)
+        public void AllIngredient(IEnumerable<IMenuItem> AllItems)
         {
             foreach(IMenuItem item in AllItems)
             {
