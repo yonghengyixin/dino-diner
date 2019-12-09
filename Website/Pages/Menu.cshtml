@@ -103,48 +103,48 @@
                     @foreach (IMenuItem s in Model.Side)
                     {
                         Side side = s as Side;
-                    <table>
+                    <p>
+                        @side.ToString()
+                        <table>
 
-                        <tr>
-                            <th>Size</th>
-                            <th>Price</th>
-                            <th>Calories</th>
-                        </tr>
+                            <tr>
+                                <th>Size</th>
+                                <th>Price</th>
+                                <th>Calories</th>
+                            </tr>
 
-                        <tr>
-                            <td>@(side.Size = Size.Large)</td>
-                            <td>@(side.Price)</td>
-                            <td>@(side.Calories)</td>
-                        </tr>
+                            <tr>
+                                <td>@(side.Size = Size.Large)</td>
+                                <td>@(side.Price)</td>
+                                <td>@(side.Calories)</td>
+                            </tr>
 
-                        <tr>
-                            <td>@(side.Size = Size.Medium)</td>
-                            <td>@(side.Price)</td>
-                            <td>@(side.Calories)</td>
-                        </tr>
+                            <tr>
+                                <td>@(side.Size = Size.Medium)</td>
+                                <td>@(side.Price)</td>
+                                <td>@(side.Calories)</td>
+                            </tr>
 
-                        <tr>
-                            <td>@(side.Size = Size.Small)</td>
-                            <td>@(side.Price)</td>
-                            <td>@(side.Calories)</td>
-                        </tr>
-                    </table>
-                        <p>
-                            @side.ToString()
-                            <ul>
-                                <li>Price: @side.Price</li>
-                                <li>Calories: @side.Calories</li>
-                                <li>
-                                    ingredients:
-                                    <ul>
-                                        @for (int j = 0; j < side.Ingredients.Count; j++)
-                                        {
-                                            <li>@side.Ingredients[j].ToString()</li>
-                                        }
-                                    </ul>
-                                </li>
-                            </ul>
-                        </p>
+                            <tr>
+                                <td>@(side.Size = Size.Small)</td>
+                                <td>@(side.Price)</td>
+                                <td>@(side.Calories)</td>
+                            </tr>
+                        </table>
+                        <ul>
+                            <li>Price: @side.Price</li>
+                            <li>Calories: @side.Calories</li>
+                            <li>
+                                ingredients:
+                                <ul>
+                                    @for (int j = 0; j < side.Ingredients.Count; j++)
+                                    {
+                                        <li>@side.Ingredients[j].ToString()</li>
+                                    }
+                                </ul>
+                            </li>
+                        </ul>
+                    </p>
                         <p></p>
                     }
                 </div>
@@ -157,49 +157,49 @@
                     @foreach (IMenuItem s in Model.Drink)
                     {
                         Drink drink = s as Drink;
-                    <table>
+                    <p>
+                        @drink.ToString()
+                        <table>
 
-                        <tr>
-                            <th>Size</th>
-                            <th>Price</th>
-                            <th>Calories</th>
-                        </tr>
+                            <tr>
+                                <th>Size</th>
+                                <th>Price</th>
+                                <th>Calories</th>
+                            </tr>
 
-                        <tr>
-                            <td>@(drink.Size = Size.Large)</td>
-                            <td>@(drink.Price)</td>
-                            <td>@(drink.Calories)</td>
-                        </tr>
+                            <tr>
+                                <td>@(drink.Size = Size.Large)</td>
+                                <td>@(drink.Price)</td>
+                                <td>@(drink.Calories)</td>
+                            </tr>
 
-                        <tr>
-                            <td>@(drink.Size = Size.Medium)</td>
-                            <td>@(drink.Price)</td>
-                            <td>@(drink.Calories)</td>
-                        </tr>
+                            <tr>
+                                <td>@(drink.Size = Size.Medium)</td>
+                                <td>@(drink.Price)</td>
+                                <td>@(drink.Calories)</td>
+                            </tr>
 
-                        <tr>
-                            <td>@(drink.Size = Size.Small)</td>
-                            <td>@(drink.Price)</td>
-                            <td>@(drink.Calories)</td>
-                        </tr>
-                    </table>
-                        <p>
-                            @drink.ToString()
-                            <ul>
-                                @(drink.Size = Size.Small)
-                                <li>Price: @drink.Price</li>
-                                <li>Calories: @drink.Calories</li>
-                                <li>
-                                    ingredients:
-                                    <ul>
-                                        @for (int j = 0; j < drink.Ingredients.Count; j++)
-                                        {
-                                            <li>@drink.Ingredients[j].ToString()</li>
-                                        }
-                                    </ul>
-                                </li>
-                            </ul>
-                        </p>
+                            <tr>
+                                <td>@(drink.Size = Size.Small)</td>
+                                <td>@(drink.Price)</td>
+                                <td>@(drink.Calories)</td>
+                            </tr>
+                        </table>
+                        <ul>
+                            @(drink.Size = Size.Small)
+                            <li>Price: @drink.Price</li>
+                            <li>Calories: @drink.Calories</li>
+                            <li>
+                                ingredients:
+                                <ul>
+                                    @for (int j = 0; j < drink.Ingredients.Count; j++)
+                                    {
+                                        <li>@drink.Ingredients[j].ToString()</li>
+                                    }
+                                </ul>
+                            </li>
+                        </ul>
+                    </p>
                         <p></p>
                     }
                 </div>
